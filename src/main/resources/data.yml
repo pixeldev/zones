@@ -1,0 +1,299 @@
+Zones:
+  Test:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test2:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test3:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test4:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test5:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test6:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test7:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test8:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test9:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test10:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test11:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test12:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test13:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test14:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test15:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test16:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test17:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test18:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test19:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test20:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test21:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test22:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test23:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test24:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test25:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test26:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test27:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test28:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test29:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test30:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test31:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test32:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test33:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test34:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test35:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test36:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test37:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test38:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test39:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test40:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+  Test41:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+Creators:
+  e87126f5-d50c-44dd-9f7d-c0215e2b4b94:
+    Zones:
+      - "Test"
+      - "Test2"
+      - "Test3"
+      - "Test4"
+      - "Test5"
+      - "Test6"
+      - "Test7"
+      - "Test8"

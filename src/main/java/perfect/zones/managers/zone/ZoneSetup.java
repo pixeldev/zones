@@ -2,7 +2,6 @@ package perfect.zones.managers.zone;
 
 import org.bukkit.Location;
 import perfect.zones.cuboid.PCuboid;
-import perfect.zones.managers.zone.PZoneSetup;
 
 public class ZoneSetup implements PZoneSetup {
 
@@ -45,6 +44,26 @@ public class ZoneSetup implements PZoneSetup {
     @Override
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String getMaterial() {
+        return null;
+    }
+
+    @Override
+    public void setMaterial(String material) {
+
+    }
+
+    @Override
+    public int getData() {
+        return 0;
+    }
+
+    @Override
+    public void setData(int data) {
+
     }
 
     @Override

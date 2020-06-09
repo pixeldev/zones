@@ -103,6 +103,18 @@ Menu:
           - "&7Go to the next page"
           - "&7"
           - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
   Settings:
     Name: "&9[&bSettings&9]"
     Items:
@@ -110,13 +122,70 @@ Menu:
         Name: "&7"
         Lore:
           - "&7"
+      Title:
+        Name: "&bTitle"
+        Lore:
+          - "&7Click here to &benable/disable"
+          - "&7title when any player enter"
+          - "&7to any zone!"
+      Title_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Actionbar:
+        Name: "&bActionbar"
+        Lore:
+          - "&7Click here to &benable/disable"
+          - "&7actionbar when any player enter"
+          - "&7to any zone!"
+      Actionbar_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Message:
+        Name: "&bMessage"
+        Lore:
+          - "&7Click here to &benable/disable"
+          - "&7message when any player enter"
+          - "&7to any zone!"
+      Message_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Default_Zone:
+        Name: "&bDefault zone"
+        Lore:
+          - "&7Click here to change the"
+          - "&7zone default name, it"
+          - "&7shows when a player enter"
+          - "&7to any zone."
+      Default_Zone_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+  Creators:
+    Name: "&9[&bCreators&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
       Creator:
-        Name: "&bCreator"
-        Creator:
-          Name: "&bCreator"
-          Lore:
-            - "&7Here you can create a new zone"
-            - "&7from 0 and you can start to"
-            - "&7configuring to your liking!"
-            - "&7"
-            - "&bClick here!"
+        Name: "&b%name%"
+      No_Creator:
+        Name: "&bNo creators!"
+        Lore:
+          - "&7Sorry, but i can not"
+          - "&7found any creators here."

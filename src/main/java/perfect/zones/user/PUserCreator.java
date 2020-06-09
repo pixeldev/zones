@@ -1,7 +1,5 @@
 package perfect.zones.user;
 
-import perfect.zones.managers.zone.Zone;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -9,12 +7,12 @@ public interface PUserCreator {
 
     UUID getUUID();
 
-    List<Zone> getZones();
+    List<String> getZones();
 
-    void setZones(List<Zone> zones);
+    void setZones(List<String> zones);
 
-    void addZone(Zone zone);
+    void addZone(String zone);
 
-    void removeZone(Zone zone);
+    void removeZone(String zone);
 
 }

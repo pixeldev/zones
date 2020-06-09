@@ -26,11 +26,55 @@ public class PSettingsMenu {
         ItemStack decoration = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_STAINED_GLASS_PANE") : Material.valueOf("STAINED_GLASS_PANE"), 1, 9,
                 perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Decoration.Name")),
                 perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Decoration.Lore")));
+        ItemStack title = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_PAPER") : Material.valueOf("PAPER"), 1, 0,
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Title.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Title.Lore")));
+        ItemStack actionbar = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_PAPER") : Material.valueOf("PAPER"), 1, 0,
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Actionbar.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Actionbar.Lore")));
+        ItemStack message = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("OAK_SIGN") : Material.valueOf("SIGN"), 1, 0,
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Message.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Message.Lore")));
+        ItemStack defaultZone = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_ANVIL") : Material.valueOf("ANVIL"), 1, 0,
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Default_Zone.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Default_Zone.Lore")));
 
+        ItemStack close = ItemBuilder.getItem(Material.BARRIER, 1, 0, perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Zones.Items.Close.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Close.Lore")));
+        ItemStack back = ItemBuilder.getItem(Material.ARROW, 1, 0, perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Zones.Items.Back.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Back.Lore")));
+
+        ItemStack titlea = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_STAINED_GLASS_PANE") : Material.valueOf("STAINED_GLASS_PANE"), 1,
+                (perfectZones.getAllFiles().getConfig().getBoolean("Zone.Title") ? 5 : 14),
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Title_Click.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Title_Click.Lore")));
+        ItemStack actionbara = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_STAINED_GLASS_PANE") : Material.valueOf("STAINED_GLASS_PANE"), 1,
+                (perfectZones.getAllFiles().getConfig().getBoolean("Zone.Actionbar") ? 5 : 14),
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Actionbar_Click.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Actionbar_Click.Lore")));
+        ItemStack messagea = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_STAINED_GLASS_PANE") : Material.valueOf("STAINED_GLASS_PANE"), 1,
+                (perfectZones.getAllFiles().getConfig().getBoolean("Zone.Message") ? 5 : 14),
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Message_Click.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Message_Click.Lore")));
+
+        ItemStack defaultZonea = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_NAME_TAG") : Material.valueOf("NAME_TAG"), 1, 0,
+                perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Settings.Items.Default_Zone_Click.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Settings.Items.Default_Zone_Click.Lore")));
 
         for(int i=0; i<54; i++){
             inventory.setItem(i, decoration);
         }
+
+        inventory.setItem(10, title);
+        inventory.setItem(19, titlea);
+        inventory.setItem(12, actionbar);
+        inventory.setItem(21, actionbara);
+        inventory.setItem(14, message);
+        inventory.setItem(23, messagea);
+        inventory.setItem(16, defaultZone);
+        inventory.setItem(25, defaultZonea);
+        inventory.setItem(48, back);
+        inventory.setItem(50, close);
 
         player.openInventory(inventory);
     }

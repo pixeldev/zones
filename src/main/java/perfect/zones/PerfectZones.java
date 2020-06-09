@@ -17,6 +17,7 @@ import perfect.zones.files.Files;
 import perfect.zones.files.managers.PAllFiles;
 import perfect.zones.managers.EventsManager;
 import perfect.zones.managers.PageManager;
+import perfect.zones.user.manager.UserCreatorManager;
 import perfect.zones.user.manager.UserFilterManager;
 import perfect.zones.user.manager.UserZoneManager;
 import perfect.zones.managers.zone.ZoneManager;
@@ -29,6 +30,7 @@ public final class PerfectZones extends JavaPlugin {
     private PageManager pageManager;
     private UserZoneManager userZoneManager;
     private UserFilterManager userFilterManager;
+    private UserCreatorManager userCreatorManager;
 
     public Files config;
     public Files data;
@@ -58,18 +60,21 @@ public final class PerfectZones extends JavaPlugin {
         this.userZoneManager = new UserZoneManager();
         this.pageManager = new PageManager();
         this.userFilterManager = new UserFilterManager();
+        this.userCreatorManager = new UserCreatorManager(this);
 
         new ZonesExpansion(this).register();
         new EventsManager(this);
 
         registerCommands();
 
+        this.userCreatorManager.loadCreators();
         this.zoneManager.loadZones();
     }
 
     @Override
     public void onDisable(){
         this.zoneManager.saveZones();
+        this.userCreatorManager.saveCreators();
     }
 
     public String getPrefix() {
@@ -90,6 +95,10 @@ public final class PerfectZones extends JavaPlugin {
 
     public ZoneManager getZoneManager() {
         return zoneManager;
+    }
+
+    public UserCreatorManager getUserCreatorManager() {
+        return userCreatorManager;
     }
 
     public UserFilterManager getUserFilterManager() {

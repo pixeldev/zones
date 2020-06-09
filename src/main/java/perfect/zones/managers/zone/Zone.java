@@ -2,8 +2,6 @@ package perfect.zones.managers.zone;
 
 import org.bukkit.Location;
 import perfect.zones.cuboid.PCuboid;
-import perfect.zones.managers.zone.PZone;
-import perfect.zones.managers.zone.ZoneSetup;
 
 import java.util.ArrayList;
 import java.util.List;

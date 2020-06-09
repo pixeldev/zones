@@ -6,9 +6,11 @@ Messages:
       Point1_Select: "%prefix% &aYou selected the point #1 &a&n(%location%)&a!"
       Point2_Select: "%prefix% &aYou selected the point #2 &a&n(%location%)&a!"
       Success_Setup: "%prefix% &aThe zone &a&n%name%&a has been finished!"
+    Menu:
+      Success_Change_Default_Zone_Name: "%prefix% &aYou have successfully changed the zone default name to &a&n%name%&a!"
   Commands:
     Create:
-      Invalid_Use: "%prefix% &cInvalid usage: /pzones create <Name> <Default:true or false>"
+      Invalid_Use: "%prefix% &cInvalid usage: /perfectZonesones create <Name> <Default:true or false>"
       Already_Zone: "%prefix% &cSorry but any zone already exists with the name &c&n%name%&c!"
       Success_Create: "%prefix% &aZone &a&n%name%&a has been create successfully!"
       Join_Creator: "%prefix% &aNow you are in creator mode!"

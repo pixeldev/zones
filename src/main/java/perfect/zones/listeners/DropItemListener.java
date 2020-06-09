@@ -8,16 +8,16 @@ import perfect.zones.PerfectZones;
 
 public class DropItemListener implements Listener {
 
-    private final PerfectZones pz;
+    private final PerfectZones perfectZones;
 
-    public DropItemListener(PerfectZones pz) {
-        this.pz = pz;
+    public DropItemListener(PerfectZones perfectZones) {
+        this.perfectZones = perfectZones;
     }
 
     @EventHandler
     public void onDrop(PlayerDropItemEvent event){
         Player player = event.getPlayer();
-        if(pz.getZoneManager().containsPlayer(player.getUniqueId())){
+        if(perfectZones.getZoneManager().containsPlayer(player.getUniqueId())){
             event.setCancelled(true);
         }
     }

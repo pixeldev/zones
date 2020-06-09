@@ -10,17 +10,17 @@ import java.util.*;
 
 public class ZoneManager {
 
-    private final PerfectZones pz;
+    private final PerfectZones perfectZones;
     private List<Zone> zones;
-    private final Map<UUID, Zone> newSetupZone;
-    private final Map<UUID, Map<Zone, ZoneSetup>> addSetupZone;
+    private final Map<UUID, Zone> newSetuperfectZonesone;
+    private final Map<UUID, Map<Zone, ZoneSetup>> addSetuperfectZonesone;
     private final Map<UUID, PSaveInventory> saveInventory;
 
-    public ZoneManager(PerfectZones pz) {
-        this.pz = pz;
-        this.newSetupZone = new HashMap<>();
+    public ZoneManager(PerfectZones perfectZones) {
+        this.perfectZones = perfectZones;
+        this.newSetuperfectZonesone = new HashMap<>();
         this.saveInventory = new HashMap<>();
-        this.addSetupZone = new HashMap<>();
+        this.addSetuperfectZonesone = new HashMap<>();
     }
 
     public boolean alreadyZone(String name){
@@ -50,40 +50,40 @@ public class ZoneManager {
         return saveInventory;
     }
 
-    public boolean containsPlayerAddSetupZone(UUID player){
-        return this.addSetupZone.containsKey(player);
+    public boolean containsPlayerAddSetuperfectZonesone(UUID player){
+        return this.addSetuperfectZonesone.containsKey(player);
     }
 
-    public void addAddSetupZone(UUID player, Map<Zone, ZoneSetup> zoneZoneSetupMap){
-        if(containsPlayerAddSetupZone(player)) return;
-        this.addSetupZone.put(player, zoneZoneSetupMap);
+    public void addAddSetuperfectZonesone(UUID player, Map<Zone, ZoneSetup> zoneZoneSetupMap){
+        if(containsPlayerAddSetuperfectZonesone(player)) return;
+        this.addSetuperfectZonesone.put(player, zoneZoneSetupMap);
     }
 
-    public void removeAddSetupZone(UUID player){
-        if(!containsPlayerAddSetupZone(player)) return;
-        this.addSetupZone.remove(player);
+    public void removeAddSetuperfectZonesone(UUID player){
+        if(!containsPlayerAddSetuperfectZonesone(player)) return;
+        this.addSetuperfectZonesone.remove(player);
     }
 
-    public Map<UUID, Map<Zone, ZoneSetup>> getAddSetupZone() {
-        return addSetupZone;
+    public Map<UUID, Map<Zone, ZoneSetup>> getAddSetuperfectZonesone() {
+        return addSetuperfectZonesone;
     }
 
     public boolean containsPlayer(UUID player){
-        return this.newSetupZone.containsKey(player);
+        return this.newSetuperfectZonesone.containsKey(player);
     }
 
-    public void addNewSetupZone(UUID player, Zone zone){
+    public void addNewSetuperfectZonesone(UUID player, Zone zone){
         if(containsPlayer(player)) return;
-        this.newSetupZone.put(player, zone);
+        this.newSetuperfectZonesone.put(player, zone);
     }
 
-    public void removeNewSetupZone(UUID player){
+    public void removeNewSetuperfectZonesone(UUID player){
         if(!containsPlayer(player)) return;
-        this.newSetupZone.remove(player);
+        this.newSetuperfectZonesone.remove(player);
     }
 
-    public Map<UUID, Zone> getNewSetupZone() {
-        return newSetupZone;
+    public Map<UUID, Zone> getNewSetuperfectZonesone() {
+        return newSetuperfectZonesone;
     }
 
     public boolean containsZone(Zone zone){
@@ -113,30 +113,30 @@ public class ZoneManager {
 
     public void loadZones(){
         this.zones = new ArrayList<>();
-        if(pz.getAllFiles().getData().contains("Zones")){
-            for(String s : pz.getAllFiles().getData().getConfigurationSection("Zones").getKeys(false)){
+        if(perfectZones.getAllFiles().getData().contains("Zones")){
+            for(String s : perfectZones.getAllFiles().getData().getConfigurationSection("Zones").getKeys(false)){
                 List<ZoneSetup> zoneSetups = new ArrayList<>();
-                if(pz.getAllFiles().getData().contains("Zones." + s + ".Sub_Zones")){
-                    for(String c : pz.getAllFiles().getData().getConfigurationSection("Zones." + s + ".Sub_Zones").getKeys(false)){
-                        PCuboid cuboid = new PCuboid(Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_DOWN")),
-                                Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_UP")));
-                        ZoneSetup zoneSetup = new ZoneSetup(pz.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Creator"),
-                                c, Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_DOWN")),
-                                Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_UP")),
-                                pz.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Date"), cuboid);
+                if(perfectZones.getAllFiles().getData().contains("Zones." + s + ".Sub_Zones")){
+                    for(String c : perfectZones.getAllFiles().getData().getConfigurationSection("Zones." + s + ".Sub_Zones").getKeys(false)){
+                        PCuboid cuboid = new PCuboid(Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_DOWN")),
+                                Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_UP")));
+                        ZoneSetup zoneSetup = new ZoneSetup(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Creator"),
+                                c, Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_DOWN")),
+                                Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Location_UP")),
+                                perfectZones.getAllFiles().getData().getString("Zones." + s + ".Sub_Zones." + c + ".Date"), cuboid);
                         zoneSetups.add(zoneSetup);
                     }
                 } else {
                     Bukkit.getConsoleSender().sendMessage("§9[§bPerfectZones§9] §cNo sub-zones founded for §b" + s + "§c...");
                 }
 
-                PCuboid cuboid = new PCuboid(Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Location_DOWN")),
-                        Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Location_UP")));
+                PCuboid cuboid = new PCuboid(Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Location_DOWN")),
+                        Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Location_UP")));
 
-                Zone zone = new Zone(pz.getAllFiles().getData().getString("Zones." + s + ".Creator"), s, Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Location_DOWN")),
-                        Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Location_UP")), pz.getAllFiles().getData().getString("Zones." + s + ".Date"),
-                        cuboid, pz.getAllFiles().getData().getBoolean("Zones." + s + ".Default"), zoneSetups,
-                        pz.getAllFiles().getData().getString("Zones." + s + ".Material"));
+                Zone zone = new Zone(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Creator"), s, Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Location_DOWN")),
+                        Serialize.deserializeLocation(perfectZones.getAllFiles().getData().getString("Zones." + s + ".Location_UP")), perfectZones.getAllFiles().getData().getString("Zones." + s + ".Date"),
+                        cuboid, perfectZones.getAllFiles().getData().getBoolean("Zones." + s + ".Default"), zoneSetups,
+                        perfectZones.getAllFiles().getData().getString("Zones." + s + ".Material"));
 
                 this.zones.add(zone);
             }
@@ -149,26 +149,26 @@ public class ZoneManager {
     public void saveZones(){
         if(!this.zones.isEmpty()){
             for(Zone zone : this.zones) {
-                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Creator", zone.getCreator());
-                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Date", zone.getDate());
-                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Location_UP", Serialize.serializeLocation(zone.getUp()));
-                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Location_DOWN", Serialize.serializeLocation(zone.getDown()));
-                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Default", zone.isDefault());
-                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Material", zone.getMaterial());
+                perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Creator", zone.getCreator());
+                perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Date", zone.getDate());
+                perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Location_UP", Serialize.serializeLocation(zone.getUp()));
+                perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Location_DOWN", Serialize.serializeLocation(zone.getDown()));
+                perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Default", zone.isDefault());
+                perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Material", zone.getMaterial());
 
                 if(!zone.getZones().isEmpty()){
                     for(ZoneSetup zoneSetup : zone.getZones()){
-                        pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Creator", zoneSetup.getCreator());
-                        pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Date", zoneSetup.getDate());
-                        pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Location_UP", Serialize.serializeLocation(zoneSetup.getUp()));
-                        pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Location_DOWN", Serialize.serializeLocation(zoneSetup.getDown()));
+                        perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Creator", zoneSetup.getCreator());
+                        perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Date", zoneSetup.getDate());
+                        perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Location_UP", Serialize.serializeLocation(zoneSetup.getUp()));
+                        perfectZones.getAllFiles().getData().set("Zones." + zone.getName() + ".Sub_Zones." + zoneSetup.getName() + ".Location_DOWN", Serialize.serializeLocation(zoneSetup.getDown()));
                     }
                 } else {
                     Bukkit.getConsoleSender().sendMessage("§9[§bPerfectZones§9] §cNo sub-zones founded for the zone §b" + zone.getName() + "§c...");
                 }
             }
             Bukkit.getConsoleSender().sendMessage("§9[§bPerfectZones§9] §aSaving all zones...");
-            pz.data.save();
+            perfectZones.data.save();
         } else {
             Bukkit.getConsoleSender().sendMessage("§9[§bPerfectZones§9] §cNo zones founded...");
         }

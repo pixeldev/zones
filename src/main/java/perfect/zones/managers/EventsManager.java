@@ -7,20 +7,21 @@ import perfect.zones.listeners.*;
 
 public class EventsManager {
 
-    private final PerfectZones pz;
+    private final PerfectZones perfectZones;
 
-    public EventsManager(PerfectZones pz) {
-        this.pz = pz;
+    public EventsManager(PerfectZones perfectZones) {
+        this.perfectZones = perfectZones;
         register();
     }
 
     public void register(){
         PluginManager pm = Bukkit.getServer().getPluginManager();
-        pm.registerEvents(new PlayerInteractListener(pz), pz);
-        pm.registerEvents(new DropItemListener(pz), pz);
-        pm.registerEvents(new PlayerJoinListener(pz), pz);
-        pm.registerEvents(new InventoryClickListener(pz), pz);
-        pm.registerEvents(new PlayerEnterZoneListener(pz), pz);
-        pm.registerEvents(new PlayerMoveListener(pz), pz);
+        pm.registerEvents(new PlayerInteractListener(perfectZones), perfectZones);
+        pm.registerEvents(new DropItemListener(perfectZones), perfectZones);
+        pm.registerEvents(new PlayerJoinListener(perfectZones), perfectZones);
+        pm.registerEvents(new InventoryClickListener(perfectZones), perfectZones);
+        pm.registerEvents(new PlayerEnterZoneListener(perfectZones), perfectZones);
+        pm.registerEvents(new PlayerMoveListener(perfectZones), perfectZones);
+        pm.registerEvents(new CreateZoneListener(perfectZones), perfectZones);
     }
 }

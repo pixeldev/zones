@@ -35,7 +35,7 @@ public final class ZonesExpansion extends PlaceholderExpansion {
 
     @Override
     public String getIdentifier() {
-        return "pzones";
+        return "perfectZonesones";
     }
 
     @Override

@@ -24,7 +24,7 @@ public class UserFilter {
         this.type = type;
     }
 
-    enum Type {
+    public enum Type {
         A_Z, Z_A, NORMAL
     }
 

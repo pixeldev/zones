@@ -19,14 +19,15 @@ import perfect.zones.managers.Page;
 import perfect.zones.managers.zone.Zone;
 import perfect.zones.menu.PMainMenu;
 import perfect.zones.menu.PZonesMenu;
+import perfect.zones.user.UserFilter;
 import perfect.zones.user.manager.PSaveInventory;
 
 import java.util.Arrays;
 
-@ACommand(names = {"perfectzones", "pzones", "pz"})
+@ACommand(names = {"perfectzones", "pz", "pzones"})
 public class PrincipalZonesCMD implements CommandClass {
 
-    private PerfectZones perfectZones;
+    private final PerfectZones perfectZones;
 
     public PrincipalZonesCMD(PerfectZones perfectZones) {
         this.perfectZones = perfectZones;
@@ -51,7 +52,7 @@ public class PrincipalZonesCMD implements CommandClass {
 
         if(createZoneEvent.isCancelled()) return true;
 
-        perfectZones.getZoneManager().addNewSetupZone(player.getUniqueId(), zone);
+        perfectZones.getZoneManager().addNewSetuperfectZonesone(player.getUniqueId(), zone);
         perfectZones.getZoneManager().addZone(zone);
         player.sendMessage(perfectZones.getAllFiles().getLang().parseColor(perfectZones.getAllFiles().getLang().getString("Messages.Commands.Create.Success_Create").replace("%prefix%", perfectZones.getPrefix()).replace("%name%", name)));
 
@@ -83,11 +84,14 @@ public class PrincipalZonesCMD implements CommandClass {
             return false;
         }
         Player player = (Player) sender;
+        if(!perfectZones.getUserFilterManager().isUserFilter(player.getUniqueId())){
+            perfectZones.getUserFilterManager().getUsersFilter().add(new UserFilter(player.getUniqueId(), UserFilter.Type.NORMAL));
+        }
         if(!perfectZones.getPageManager().isUser(player.getUniqueId())){
-            new PZonesMenu(perfectZones, player).open(1);
+            new PZonesMenu(perfectZones, player, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType());
             perfectZones.getPageManager().getPages().add(new Page(player.getUniqueId(), 1));
         } else {
-            new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
+            new PZonesMenu(perfectZones, player, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType()).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
         }
         return true;
     }
