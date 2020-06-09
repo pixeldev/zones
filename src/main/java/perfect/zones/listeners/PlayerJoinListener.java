@@ -18,7 +18,6 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
-        UserZone userZone = new UserZone(player);
-        perfectZones.getUserZoneManager().addUserZone(userZone);
+        perfectZones.getUserZoneManager().addUser(player.getUniqueId(), new UserZone(player));
     }
 }

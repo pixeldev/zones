@@ -13,6 +13,14 @@ public interface PZoneSetup {
 
     void setName(String name);
 
+    String getMaterial();
+
+    void setMaterial(String material);
+
+    int getData();
+
+    void setData(int data);
+
     Location getDown();
 
     void setDown(Location down);

@@ -4,11 +4,14 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import perfect.zones.PerfectZones;
-import perfect.zones.user.PUserZone;
 
-public class ZonesExpansion extends PlaceholderExpansion {
+public final class ZonesExpansion extends PlaceholderExpansion {
 
     private PerfectZones perfectZones;
+
+    public ZonesExpansion(PerfectZones perfectZones) {
+        this.perfectZones = perfectZones;
+    }
 
     @Override
     public boolean canRegister(){
@@ -52,7 +55,7 @@ public class ZonesExpansion extends PlaceholderExpansion {
         }
 
         if(identifier.equals("playerzone")){
-            return PerfectZones.getPerfectZones().getUserZoneManager().getUserZone(player).getZoneName();
+            return perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZoneName();
         }
 
         return null;

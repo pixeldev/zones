@@ -24,20 +24,20 @@ public class PlayerMoveListener implements Listener {
             for(Zone zone : perfectZones.getZoneManager().getZones()){
                 if(zone.getCuboid() != null){
                     if(zone.getCuboid().containsLocation(player.getLocation())){
-                        perfectZones.getUserZoneManager().getUserZone(player).setZone(zone);
-                        perfectZones.getUserZoneManager().getUserZone(player).setZoneName(zone.getName());
+                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZone(zone);
+                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZoneName(zone.getName());
                         if(!perfectZones.getUserZoneManager().isPlayerInZone(player.getUniqueId())) {
-                            PlayerEnterZoneEvent playerEnterZoneEvent = new PlayerEnterZoneEvent(player, perfectZones.getUserZoneManager().getUserZone(player) ,zone, zone.getName());
+                            PlayerEnterZoneEvent playerEnterZoneEvent = new PlayerEnterZoneEvent(player, perfectZones.getUserZoneManager().getUser(player.getUniqueId()), zone, zone.getName());
                             Bukkit.getServer().getPluginManager().callEvent(playerEnterZoneEvent);
                         }
                     }
                 }
             }
-            if(perfectZones.getUserZoneManager().getUserZone(player).getZone() != null){
-                if(!perfectZones.getUserZoneManager().getUserZone(player).getZone().getCuboid().containsLocation(player.getLocation())){
+            if(perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZone() != null){
+                if(!perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZone().getCuboid().containsLocation(player.getLocation())){
                     perfectZones.getUserZoneManager().removePlayerInZone(player.getUniqueId());
-                    perfectZones.getUserZoneManager().getUserZone(player).setZone(null);
-                    perfectZones.getUserZoneManager().getUserZone(player).setZoneName(perfectZones.getAllFiles().getConfig().parseColor(perfectZones.getAllFiles().getConfig().getString("Zone.Default_Zone")));
+                    perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZone(null);
+                    perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZoneName(perfectZones.getAllFiles().getConfig().parseColor(perfectZones.getAllFiles().getConfig().getString("Zone.Default_Zone")));
                 }
             }
         }

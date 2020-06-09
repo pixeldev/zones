@@ -1,69 +1,90 @@
 package perfect.zones.files;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Files {
+public class Files extends YamlConfiguration{
 
-    File file;
-    File path;
-    FileConfiguration configuration;
-    Plugin plugin;
-    InputStream defaults;
+    private final String fileName;
+    private final JavaPlugin plugin;
+    private final File folder;
 
-    public Files(String name, String path, InputStream defaults, Plugin plugin){
-        this.plugin = plugin;
-        this.defaults = defaults;
-        this.file = new File(this.plugin.getDataFolder() + path, name);
-        this.path = new File(this.plugin.getDataFolder() + path);
-        this.configuration = new YamlConfiguration();
-        createFile();
+    public Files(JavaPlugin plugin, String fileName, File folder){
+        this(plugin, fileName, ".yml", folder);
     }
 
-    public void save(){
+    public Files(JavaPlugin plugin, String filename, String fileextension, File folder){
+        this.folder = folder;
+        this.plugin = plugin;
+        this.fileName = filename + (filename.endsWith(fileextension) ? "" : fileextension);
+        this.createFile();
+    }
+
+    public Files(final JavaPlugin plugin, final String fileName) {
+        this(plugin, fileName, ".yml");
+    }
+
+    public Files(final JavaPlugin plugin, final String fileName, final String fileExtension) {
+        this(plugin, fileName, fileExtension, plugin.getDataFolder());
+    }
+
+    public JavaPlugin getPlugin() {
+        return this.plugin;
+    }
+
+    @Override
+    public String getString(String path){
+        String getted;
+        try{
+            getted = super.getString(path);
+        }catch(NullPointerException e){
+            getted = path;
+        }
+        return getted.replace('&', '§');
+    }
+
+    public List<String> getColouredStringList(String path){
+        List<String> f = new ArrayList<>();
+        for(String l : super.getStringList(path)){
+            f.add(l.replace('&', '§'));
+        }
+        return f;
+    }
+
+    public <T> T get(Class<T> clazz, String path){
+        Object obj = super.get(path);
+        return clazz.cast(obj);
+    }
+
+    private void createFile() {
         try {
-            String str = this.configuration.saveToString();
-            FileWriter fw = new FileWriter(this.file);
-            fw.write(str);
-            fw.close();
-        } catch (IOException e){
-            e.printStackTrace();
+            final File file = new File(folder, this.fileName);
+            if (!file.exists()) {
+                if (this.plugin.getResource(this.fileName) != null) {
+                    this.plugin.saveResource(this.fileName, false);
+                } else {
+                    this.save(file);
+                }
+                this.load(file);
+            } else {
+                this.load(file);
+                this.save(file);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
-    private void createFile(){
-        if(!this.path.exists())
-            this.path.mkdirs();
-        if(this.defaults != null)
-            try {
-                if(!this.file.exists()){
-                    InputStream in = this.defaults;
-                    OutputStream out = new FileOutputStream(this.file);
-                    byte[] buf = new byte[this.defaults.available()];
-                    int len;
-                    while ((len = in.read(buf)) > 0){
-                        out.write(buf, 0 ,len);
-                    }
-                    out.close();
-                    in.close();
-                }
-                this.configuration = YamlConfiguration.loadConfiguration(this.file);
-            } catch (IOException e){
-                this.plugin.getLogger().severe("Error while writing configuration file... " + this.file.getName() + "!");
-                this.plugin.getLogger().severe("Disabling...");
-                this.plugin.getServer().getPluginManager().disablePlugin(this.plugin);
-                e.printStackTrace();
-            }
-    }
-
-    public void reload(){
-        this.configuration = YamlConfiguration.loadConfiguration(this.file);
-    }
-
-    public FileConfiguration getData(){
-        return this.configuration;
+    public void save() {
+        final File folder = this.plugin.getDataFolder();
+        try {
+            this.save(new File(folder, this.fileName));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }

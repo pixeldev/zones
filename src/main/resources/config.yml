@@ -1,0 +1,6 @@
+Zone:
+  Message: true
+  Title: false
+  Subtitle: false
+  Actionbar: true
+  Default_Zone: "&aWilderness"

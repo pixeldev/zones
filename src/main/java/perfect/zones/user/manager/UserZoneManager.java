@@ -1,23 +1,17 @@
 package perfect.zones.user.manager;
 
-import org.bukkit.entity.Player;
-import perfect.zones.PerfectZones;
 import perfect.zones.user.UserZone;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class UserZoneManager {
 
-    private PerfectZones pz;
-    private final List<UserZone> userZone;
+    private final Map<UUID, UserZone> userZone;
     private final List<UUID> playersInZone;
 
-    public UserZoneManager(PerfectZones pz) {
-        this.pz = pz;
+    public UserZoneManager() {
         this.playersInZone = new ArrayList<>();
-        this.userZone = new ArrayList<>();
+        this.userZone = new HashMap<>();
     }
 
     public boolean isPlayerInZone(UUID player){
@@ -38,30 +32,23 @@ public class UserZoneManager {
         return playersInZone;
     }
 
-    public List<UserZone> getUserZone() {
+    public Map<UUID, UserZone> getUserZone() {
         return userZone;
     }
 
-    public boolean isUserZone(UserZone zone){
-        return (this.userZone.contains(zone));
+    public boolean containsUser(UUID player){
+        return userZone.containsKey(player);
     }
 
-    public void addUserZone(UserZone zone){
-        if(isUserZone(zone)) return;
-        this.userZone.add(zone);
+    public UserZone getUser(UUID player){
+        return userZone.get(player);
     }
 
-    public void removeUserZone(UserZone zone){
-        if(!isUserZone(zone)) return;
-        this.userZone.remove(zone);
+    public void addUser(UUID player, UserZone userZone){
+        this.userZone.put(player, userZone);
     }
 
-    public UserZone getUserZone(Player player){
-        for(UserZone u : this.userZone){
-            if(u.getPlayer().getName().equals(player.getName())){
-                return u;
-            }
-        }
-        return null;
+    public void removeUser(UUID player){
+        userZone.remove(player);
     }
 }

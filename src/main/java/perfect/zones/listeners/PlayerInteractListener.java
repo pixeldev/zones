@@ -1,9 +1,6 @@
 package perfect.zones.listeners;
 
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -21,6 +18,7 @@ import java.text.SimpleDateFormat;
 
 public class PlayerInteractListener implements Listener {
 
+    private final int versionId = Integer.parseInt(Bukkit.getBukkitVersion().split("-")[0].replace(".", "#").split("#")[1]);
     private final PerfectZones pz;
 
     public PlayerInteractListener(PerfectZones pz) {
@@ -44,13 +42,13 @@ public class PlayerInteractListener implements Listener {
 
                         if(action.equals(Action.RIGHT_CLICK_BLOCK)) {
                             Location location = event.getClickedBlock().getLocation();
-                            player.playSound(player.getLocation(), Sound.CLICK, 2, 3);
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                             player.sendMessage(pz.getAllFiles().getLang().parseColor(pz.getAllFiles().getLang().getString("Messages.Zone.Setup.Point2_Select").replace("%prefix%", pz.getPrefix())
                                     .replace("%location%", Serialize.serializeLocation(event.getClickedBlock().getLocation()))));
                             zone.setUp(location);
                         } else if (action.equals(Action.LEFT_CLICK_BLOCK)) {
                             Location location = event.getClickedBlock().getLocation();
-                            player.playSound(player.getLocation(), Sound.CLICK, 2, 3);
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                             player.sendMessage(pz.getAllFiles().getLang().parseColor(pz.getAllFiles().getLang().getString("Messages.Zone.Setup.Point1_Select").replace("%prefix%", pz.getPrefix())
                                     .replace("%location%", Serialize.serializeLocation(event.getClickedBlock().getLocation()))));
                             zone.setDown(location);
@@ -61,7 +59,7 @@ public class PlayerInteractListener implements Listener {
                             zone.setDate(new SimpleDateFormat("dd/MM/yyyy-hh:mm").format(System.currentTimeMillis()));
                             pz.getZoneManager().removeNewSetupZone(player.getUniqueId());
                             quitCreator(player);
-                            player.playSound(player.getLocation(), Sound.NOTE_PLING, 2, 3);
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
                             player.sendMessage(pz.getAllFiles().getLang().parseColor(pz.getAllFiles().getLang().getString("Messages.Zone.Setup.Success_Setup").replace("%prefix%", pz.getPrefix()).replace("%name%", zone.getName())));
                         }
                     }

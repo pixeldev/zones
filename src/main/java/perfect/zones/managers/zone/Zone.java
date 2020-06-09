@@ -12,10 +12,12 @@ public class Zone implements PZone {
 
     private String creator;
     private String name;
+    private int data;
     private Location down;
     private Location up;
     private String date;
     private PCuboid cuboid;
+    private String material;
     private boolean def;
     private List<ZoneSetup> zoneSetups;
 
@@ -23,11 +25,14 @@ public class Zone implements PZone {
         this.creator = creator;
         this.def = def;
         this.name = name;
+        this.data = 0;
+        this.material = "STONE";
         this.zoneSetups = new ArrayList<>();
     }
 
-    public Zone(String creator, String name, Location down, Location up, String date, PCuboid cuboid, boolean def, List<ZoneSetup> zoneSetups) {
+    public Zone(String creator, String name, Location down, Location up, String date, PCuboid cuboid, boolean def, List<ZoneSetup> zoneSetups, String material) {
         this.creator = creator;
+        this.material = material;
         this.def = def;
         this.name = name;
         this.down = down;
@@ -125,5 +130,25 @@ public class Zone implements PZone {
     @Override
     public void setDefault(boolean def) {
         this.def = def;
+    }
+
+    @Override
+    public String getMaterial() {
+        return material;
+    }
+
+    @Override
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    @Override
+    public int getData() {
+        return data;
+    }
+
+    @Override
+    public void setData(int data) {
+        this.data = data;
     }
 }

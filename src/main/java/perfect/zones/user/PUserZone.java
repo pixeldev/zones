@@ -9,8 +9,6 @@ public interface PUserZone {
 
     Player getPlayer();
 
-    void setPlayer(Player player);
-
     Zone getZone();
 
     void setZone(Zone zone);

@@ -3,7 +3,6 @@ package perfect.zones.managers.zone;
 import org.bukkit.Bukkit;
 import perfect.zones.PerfectZones;
 import perfect.zones.cuboid.PCuboid;
-import perfect.zones.files.managers.PFilesManager;
 import perfect.zones.user.manager.PSaveInventory;
 import perfect.zones.utils.Serialize;
 
@@ -26,7 +25,9 @@ public class ZoneManager {
 
     public boolean alreadyZone(String name){
         for(Zone zone : this.zones){
-            return zone.getName().equals(name);
+            if(zone.getName().equals(name)){
+                return true;
+            }
         }
         return false;
     }
@@ -134,7 +135,8 @@ public class ZoneManager {
 
                 Zone zone = new Zone(pz.getAllFiles().getData().getString("Zones." + s + ".Creator"), s, Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Location_DOWN")),
                         Serialize.deserializeLocation(pz.getAllFiles().getData().getString("Zones." + s + ".Location_UP")), pz.getAllFiles().getData().getString("Zones." + s + ".Date"),
-                        cuboid, pz.getAllFiles().getData().getBoolean("Zones." + s + ".Default"), zoneSetups);
+                        cuboid, pz.getAllFiles().getData().getBoolean("Zones." + s + ".Default"), zoneSetups,
+                        pz.getAllFiles().getData().getString("Zones." + s + ".Material"));
 
                 this.zones.add(zone);
             }
@@ -152,6 +154,7 @@ public class ZoneManager {
                 pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Location_UP", Serialize.serializeLocation(zone.getUp()));
                 pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Location_DOWN", Serialize.serializeLocation(zone.getDown()));
                 pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Default", zone.isDefault());
+                pz.getAllFiles().getData().set("Zones." + zone.getName() + ".Material", zone.getMaterial());
 
                 if(!zone.getZones().isEmpty()){
                     for(ZoneSetup zoneSetup : zone.getZones()){
@@ -165,7 +168,7 @@ public class ZoneManager {
                 }
             }
             Bukkit.getConsoleSender().sendMessage("§9[§bPerfectZones§9] §aSaving all zones...");
-            PFilesManager.getFiles("data").save();
+            pz.data.save();
         } else {
             Bukkit.getConsoleSender().sendMessage("§9[§bPerfectZones§9] §cNo zones founded...");
         }

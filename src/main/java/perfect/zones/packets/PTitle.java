@@ -6,7 +6,7 @@ import org.bukkit.entity.Player;
 
 import java.lang.reflect.Constructor;
 
-public class PTitle {
+public final class PTitle {
 
     public static void sendTitle(Player player, int fadeIn, int stay, int fadeOut, String message){
         sendTitle(player, fadeIn, stay, fadeOut, message, null);
@@ -31,9 +31,6 @@ public class PTitle {
     }
 
     public static void sendTitle(Player player, int fadeIn, int stay, int fadeOut, String title, String subtitle){
-        PTitleSendEvent sendEvent = new PTitleSendEvent(player, title, subtitle);
-        Bukkit.getPluginManager().callEvent(sendEvent);
-        if(sendEvent.isCancelled()) return;
         try {
             if(title != null){
                 title = ChatColor.translateAlternateColorCodes('&', title);

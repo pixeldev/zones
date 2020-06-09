@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ItemBuilder {
 
+    @SuppressWarnings("deprecation")
     public static ItemStack getItem(Material material, int amount, int data, String title, List<String> lore) {
         ItemStack itemStack = new ItemStack(material, amount, (byte)data);
         ItemMeta meta = itemStack.getItemMeta();

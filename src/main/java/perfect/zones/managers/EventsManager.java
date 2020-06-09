@@ -7,7 +7,7 @@ import perfect.zones.listeners.*;
 
 public class EventsManager {
 
-    private PerfectZones pz;
+    private final PerfectZones pz;
 
     public EventsManager(PerfectZones pz) {
         this.pz = pz;

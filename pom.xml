@@ -41,7 +41,20 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>placeholderapi</id>
+            <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
+        <dependency>
+            <groupId>me.clip</groupId>
+            <artifactId>placeholderapi</artifactId>
+            <version>2.10.6</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>me.fixeddev</groupId>
             <artifactId>ebcm-bukkit</artifactId>
@@ -49,8 +62,8 @@
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.3-R0.1-SNAPSHOT</version>
+            <artifactId>spigot</artifactId>
+            <version>1.15.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

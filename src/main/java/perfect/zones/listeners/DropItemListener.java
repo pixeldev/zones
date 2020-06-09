@@ -8,7 +8,7 @@ import perfect.zones.PerfectZones;
 
 public class DropItemListener implements Listener {
 
-    private PerfectZones pz;
+    private final PerfectZones pz;
 
     public DropItemListener(PerfectZones pz) {
         this.pz = pz;

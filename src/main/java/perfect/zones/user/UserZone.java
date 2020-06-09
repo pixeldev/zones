@@ -9,26 +9,21 @@ import java.util.List;
 
 public class UserZone implements PUserZone{
 
-    private Player player;
     private Zone zone;
+    private final Player player;
     private List<Zone> foundedZones;
     private String zoneName;
 
     public UserZone(Player player) {
-        this.player = player;
         this.zone = null;
+        this.player = player;
         this.zoneName = PerfectZones.getPerfectZones().getAllFiles().getConfig().parseColor(PerfectZones.getPerfectZones().getAllFiles().getConfig().getString("Zone.Default_Zone"));
         this.foundedZones = new ArrayList<>();
     }
 
     @Override
     public Player getPlayer() {
-        return this.player;
-    }
-
-    @Override
-    public void setPlayer(Player player) {
-        this.player = player;
+        return player;
     }
 
     @Override
