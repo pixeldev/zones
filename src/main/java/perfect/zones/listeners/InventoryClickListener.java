@@ -11,10 +11,7 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import perfect.zones.PerfectZones;
 import perfect.zones.managers.Page;
-import perfect.zones.menu.PCreatorsMenu;
-import perfect.zones.menu.PMainMenu;
-import perfect.zones.menu.PSettingsMenu;
-import perfect.zones.menu.PZonesMenu;
+import perfect.zones.menu.*;
 import perfect.zones.user.UserFilter;
 import perfect.zones.utils.AnvilGUI;
 import perfect.zones.utils.ItemBuilder;
@@ -73,6 +70,27 @@ public class InventoryClickListener implements Listener {
                     new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
 
                     break;
+                case 51:
+                    player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                    player.closeInventory();
+
+                    AnvilGUI GUI = new AnvilGUI(player, e -> {
+                        if(e.getSlot() == AnvilGUI.AnvilSlot.OUTPUT && e.hasText()) {
+                            player.closeInventory();
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
+                            perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).setKey(e.getText());
+                            perfectZones.getPageManager().getUserPage(player.getUniqueId()).setPageSearch(1);
+                            new PSearchMenu(perfectZones, player).open(1, e.getText());
+                        }
+                    });
+                    ItemStack i = new ItemStack(Material.PAPER);
+
+                    GUI.setSlot(AnvilGUI.AnvilSlot.INPUT_LEFT, i);
+                    GUI.setSlotName(AnvilGUI.AnvilSlot.INPUT_LEFT, "Type the key");
+                    GUI.setTitle("Search zone");
+                    GUI.open();
+
+                    break;
                 case 53:
                     if(event.getCurrentItem() == null || event.getCurrentItem().getType() == null || event.getCurrentItem().getType() == Material.AIR){
                         break;
@@ -101,7 +119,8 @@ public class InventoryClickListener implements Listener {
                         }
                         if(!perfectZones.getPageManager().isUser(player.getUniqueId())){
                             new PZonesMenu(perfectZones, player).open(1);
-                            perfectZones.getPageManager().getPages().add(new Page(player.getUniqueId(), 1));
+                            perfectZones.getPageManager().getPages().add(new Page(player.getUniqueId()));
+                            perfectZones.getPageManager().getUserPage(player.getUniqueId()).setPage(1);
                         } else {
                             new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
                         }
@@ -177,6 +196,63 @@ public class InventoryClickListener implements Listener {
                         player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                         player.closeInventory();
                         break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        if(event.getView().getTitle().equals(perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Search.Name")))) {
+            event.setCancelled(true);
+            if (event.getCurrentItem() != null && event.getCurrentItem().getType() != null) {
+                switch (event.getSlot()) {
+                    case 36:
+                        if (event.getCurrentItem() == null || event.getCurrentItem().getType() == null || event.getCurrentItem().getType() == Material.AIR) {
+                            break;
+                        }
+                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                        new PSearchMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPageSearch() - 1, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getKey());
+                        setPageSearch(player,perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPageSearch() - 1);
+                        break;
+                    case 39:
+                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                        new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
+                        break;
+                    case 40:
+                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                        player.closeInventory();
+
+                        AnvilGUI GUI = new AnvilGUI(player, e -> {
+                            if(e.getSlot() == AnvilGUI.AnvilSlot.OUTPUT && e.hasText()) {
+                                player.closeInventory();
+                                player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
+                                perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).setKey(e.getText());
+                                perfectZones.getPageManager().getUserPage(player.getUniqueId()).setPageSearch(1);
+                                new PSearchMenu(perfectZones, player).open(1, e.getText());
+                            }
+                        });
+                        ItemStack i = new ItemStack(Material.PAPER);
+
+                        GUI.setSlot(AnvilGUI.AnvilSlot.INPUT_LEFT, i);
+                        GUI.setSlotName(AnvilGUI.AnvilSlot.INPUT_LEFT, "Type the key");
+                        GUI.setTitle("Search zone");
+                        GUI.open();
+
+                        break;
+                    case 41:
+                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                        player.closeInventory();
+                        break;
+                    case 44:
+                        if(event.getCurrentItem() == null || event.getCurrentItem().getType() == null || event.getCurrentItem().getType() == Material.AIR){
+                            break;
+                        }
+                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                        new PSearchMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPageSearch() + 1, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getKey());
+                        setPageSearch(player,perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPageSearch() + 1);
+                        break;
+                    default:
+                        break;
                 }
             }
         }
@@ -184,6 +260,10 @@ public class InventoryClickListener implements Listener {
 
     private void setPage(Player player, int amount){
         perfectZones.getPageManager().getUserPage(player.getUniqueId()).setPage(amount);
+    }
+
+    private void setPageSearch(Player player, int amount){
+        perfectZones.getPageManager().getUserPage(player.getUniqueId()).setPageSearch(amount);
     }
 
 }

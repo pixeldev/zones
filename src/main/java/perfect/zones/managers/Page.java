@@ -6,10 +6,10 @@ public class Page {
 
     private final UUID uuid;
     private int page;
+    private int pageSearch;
 
-    public Page(UUID uuid, int page) {
+    public Page(UUID uuid) {
         this.uuid = uuid;
-        this.page = page;
     }
 
     public UUID getUuid() {
@@ -23,4 +23,13 @@ public class Page {
     public void setPage(int page) {
         this.page = page;
     }
+
+    public int getPageSearch() {
+        return pageSearch;
+    }
+
+    public void setPageSearch(int pageSearch){
+        this.pageSearch = pageSearch;
+    }
+
 }

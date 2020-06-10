@@ -5,11 +5,20 @@ import java.util.UUID;
 public class UserFilter {
 
     private final UUID uuid;
+    private String key;
     private Type type;
 
     public UserFilter(UUID uuid, Type type) {
         this.uuid = uuid;
         this.type = type;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public UUID getUuid() {

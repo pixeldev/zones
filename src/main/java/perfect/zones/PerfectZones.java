@@ -2,11 +2,11 @@ package perfect.zones;
 
 import me.fixeddev.ebcm.Authorizer;
 import me.fixeddev.ebcm.CommandManager;
-import me.fixeddev.ebcm.Messager;
+import me.fixeddev.ebcm.Messenger;
 import me.fixeddev.ebcm.SimpleCommandManager;
 import me.fixeddev.ebcm.bukkit.BukkitAuthorizer;
 import me.fixeddev.ebcm.bukkit.BukkitCommandManager;
-import me.fixeddev.ebcm.bukkit.BukkitMessager;
+import me.fixeddev.ebcm.bukkit.BukkitMessenger;
 import me.fixeddev.ebcm.bukkit.parameter.provider.BukkitModule;
 import me.fixeddev.ebcm.parameter.provider.ParameterProviderRegistry;
 import me.fixeddev.ebcm.parametric.ParametricCommandBuilder;
@@ -114,7 +114,7 @@ public final class PerfectZones extends JavaPlugin {
 
         Authorizer authorizer = new BukkitAuthorizer();
         ParameterProviderRegistry providerRegistry = ParameterProviderRegistry.createRegistry();
-        Messager messager = new BukkitMessager();
+        Messenger messager = new BukkitMessenger();
         CommandManager commandManager = new SimpleCommandManager(authorizer, messager, providerRegistry);
         providerRegistry.installModule(new BukkitModule());
 

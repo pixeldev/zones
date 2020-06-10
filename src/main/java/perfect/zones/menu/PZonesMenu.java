@@ -44,6 +44,8 @@ public class PZonesMenu {
                 filterl);
         ItemStack byCreator = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_NAME_TAG") : Material.valueOf("NAME_TAG"), 1, 0, perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Zones.Items.ByCreator.Name")),
                 perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Zones.Items.ByCreator.Lore")));
+        ItemStack search = ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("OAK_SIGN") : Material.valueOf("SIGN"), 1, 0, perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Zones.Items.Search.Name")),
+                perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Zones.Items.Search.Lore")));
         ItemStack close = ItemBuilder.getItem(Material.BARRIER, 1, 0, perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Zones.Items.Close.Name")),
                 perfectZones.getAllFiles().getMenu().parseColorList(perfectZones.getAllFiles().getMenu().getList("Menu.Zones.Items.Close.Lore")));
         ItemStack back = ItemBuilder.getItem(Material.ARROW, 1, 0, perfectZones.getAllFiles().getMenu().parseColor(perfectZones.getAllFiles().getMenu().getString("Menu.Zones.Items.Back.Name")),
@@ -138,6 +140,7 @@ public class PZonesMenu {
         inventory.setItem(46, back);
         inventory.setItem(53, right);
         inventory.setItem(50, filter);
+        inventory.setItem(51, search);
         inventory.setItem(48, byCreator);
 
         player.openInventory(inventory);

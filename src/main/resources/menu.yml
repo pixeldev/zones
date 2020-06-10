@@ -85,6 +85,13 @@ Menu:
           - "&7has been created!"
           - "&7"
           - "&bClick here!"
+      Search:
+        Name: "&bSearch"
+        Lore:
+          - "&7Here you can search any"
+          - "&7any zone by her name!"
+          - "&7"
+          - "&bClick here!"
       No_Zone:
         Name: "&bNo zones!"
         Lore:
@@ -189,3 +196,54 @@ Menu:
         Lore:
           - "&7Sorry, but i can not"
           - "&7found any creators here."
+  Search:
+    Name: "&9[&bSearch&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Zone:
+        Name: "&b%name%"
+        Lore:
+          - "&9+ &7Created by: &b%creator%"
+          - "&9+ &7Date: &b%date%"
+          - "&9+ &7Point_1: &b%location_one%"
+          - "&9+ &7Point_2: &b%location_two%"
+      No_Zone:
+        Name: "&bNo zones!"
+        Lore:
+          - "&7Sorry, but i can not"
+          - "&7found any zones with"
+          - "&7that name, try again!"
+      Back_Page:
+        Name: "&cBack"
+        Lore:
+          - "&7Back to the left page"
+          - "&7"
+          - "&bClick here!"
+      Next_Page:
+        Name: "&aNext"
+        Lore:
+          - "&7Go to the next page"
+          - "&7"
+          - "&bClick here!"
+      Search:
+        Name: "&bSearch"
+        Lore:
+          - "&7Here you can search any"
+          - "&7any zone by her name!"
+          - "&7"
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
