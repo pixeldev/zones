@@ -102,7 +102,9 @@ public class ZoneManager {
 
     public Zone getZone(String name){
         for(Zone zone : this.zones){
-            return (zone.getName().equals(name)) ? zone : null;
+            if(zone.getName().equals(name)){
+                return zone;
+            }
         }
         return null;
     }

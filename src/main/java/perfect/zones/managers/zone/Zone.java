@@ -1,12 +1,13 @@
 package perfect.zones.managers.zone;
 
 import org.bukkit.Location;
+import org.jetbrains.annotations.NotNull;
 import perfect.zones.cuboid.PCuboid;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zone implements PZone {
+public class Zone implements PZone{
 
     private String creator;
     private String name;

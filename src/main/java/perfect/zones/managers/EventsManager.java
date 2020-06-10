@@ -21,7 +21,6 @@ public class EventsManager {
         pm.registerEvents(new PlayerJoinListener(perfectZones), perfectZones);
         pm.registerEvents(new InventoryClickListener(perfectZones), perfectZones);
         pm.registerEvents(new PlayerEnterZoneListener(perfectZones), perfectZones);
-        pm.registerEvents(new PlayerMoveListener(perfectZones), perfectZones);
         pm.registerEvents(new CreateZoneListener(perfectZones), perfectZones);
     }
 }

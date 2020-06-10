@@ -48,7 +48,7 @@ public class InventoryClickListener implements Listener {
                         break;
                     }
                     player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
-                    new PZonesMenu(perfectZones, player, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType()).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage() - 1);
+                    new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage() - 1);
                     setPage(player, perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage() - 1);
                     break;
                 case 46:
@@ -59,12 +59,26 @@ public class InventoryClickListener implements Listener {
                     player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                     new PCreatorsMenu(perfectZones, player);
                     break;
+                case 50:
+                    player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+
+                    if (perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType() == UserFilter.Type.NORMAL) {
+                        perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).setType(UserFilter.Type.A_Z);
+                    } else if (perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType() == UserFilter.Type.A_Z) {
+                        perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).setType(UserFilter.Type.Z_A);
+                    } else {
+                        perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).setType(UserFilter.Type.NORMAL);
+                    }
+
+                    new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
+
+                    break;
                 case 53:
                     if(event.getCurrentItem() == null || event.getCurrentItem().getType() == null || event.getCurrentItem().getType() == Material.AIR){
                         break;
                     }
                     player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
-                    new PZonesMenu(perfectZones, player, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType()).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage() + 1);
+                    new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage() + 1);
                     setPage(player, perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage() + 1);
                     break;
                 case 52:
@@ -86,10 +100,10 @@ public class InventoryClickListener implements Listener {
                             perfectZones.getUserFilterManager().getUsersFilter().add(new UserFilter(player.getUniqueId(), UserFilter.Type.NORMAL));
                         }
                         if(!perfectZones.getPageManager().isUser(player.getUniqueId())){
-                            new PZonesMenu(perfectZones, player, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType()).open(1);
+                            new PZonesMenu(perfectZones, player).open(1);
                             perfectZones.getPageManager().getPages().add(new Page(player.getUniqueId(), 1));
                         } else {
-                            new PZonesMenu(perfectZones, player, perfectZones.getUserFilterManager().getUserFilter(player.getUniqueId()).getType()).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
+                            new PZonesMenu(perfectZones, player).open(perfectZones.getPageManager().getUserPage(player.getUniqueId()).getPage());
                         }
                         break;
                     case 31:

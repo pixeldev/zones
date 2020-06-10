@@ -1,4 +1,4 @@
-package perfect.zones.utils;
+package perfect.zones.packets;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
