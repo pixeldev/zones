@@ -1,0 +1,34 @@
+[
+  {
+    "version": "v1_8_R3",
+    "class_path": "perfect.versions.v1_8_R3.Module_v1_8_R3"
+  },
+  {
+    "version": "v1_9_R2",
+    "class_path": "perfect.versions.v1_9_R2.Module_v1_9_R2"
+  },
+  {
+    "version": "v1_10_R1",
+    "class_path": "perfect.versions.v1_10_R1.Module_v1_10_R1"
+  },
+  {
+    "version": "v1_11_R1",
+    "class_path": "perfect.versions.v1_11_R1.Module_v1_11_R1"
+  },
+  {
+    "version": "v1_12_R1",
+    "class_path": "perfect.versions.v1_12_R1.Module_v1_12_R1"
+  },
+  {
+    "version": "v1_13_R2",
+    "class_path": "perfect.versions.v1_13_R2.Module_v1_13_R2"
+  },
+  {
+    "version": "v1_14_R1",
+    "class_path": "perfect.versions.v1_14_R1.Module_v1_14_R1"
+  },
+  {
+    "version": "v1_15_R1",
+    "class_path": "perfect.versions.v1_15_R1.Module_v1_15_R1"
+  }
+]

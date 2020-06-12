@@ -1,0 +1,332 @@
+Menu:
+  Main:
+    Name: "&9[&bPerfectZones&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Creator:
+        Name: "&bCreator"
+        Lore:
+          - "&7Here you can create a new zone"
+          - "&7from 0 and you can start to"
+          - "&7configuring to your liking!"
+          - "&7"
+          - "&bClick here!"
+      Zones:
+        Name: "&bAll zones"
+        Lore:
+          - "&7Here you can look all"
+          - "&7zones created on your"
+          - "&7server, and too much"
+          - "&7options for it."
+          - "&7"
+          - "&bClick here!"
+      Users:
+        Name: "&bManage users"
+        Lore:
+          - "&7Here you can manage everything"
+          - "&7about your users,"
+          - "&7see their progress, even see"
+          - "&7the area where they are currently."
+          - "&7"
+          - "&bClick here!"
+      Settings:
+        Name: "&bPlugin Settings"
+        Lore:
+          - "&7Here you can modify every settings"
+          - "&7of the plugin, yes, every"
+          - "&7this include the messages."
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+  Zones:
+    Name: "&9[&bZones&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Zone:
+        Name: "&b%name%"
+        Lore:
+          - "&9+ &7Created by: &b%creator%"
+          - "&9+ &7Date: &b%date%"
+          - "&9+ &7Point_1: &b%location_one%"
+          - "&9+ &7Point_2: &b%location_two%"
+      Creator:
+        Name: "&bCreator"
+        Lore:
+          - "&7Here you can create a new zone"
+          - "&7from 0 and you can start to"
+          - "&7configuring to your liking!"
+          - "&7"
+          - "&bClick here!"
+      Filter:
+        Name: "&bFilter"
+        Lore:
+          - "&7Here you can change the order"
+          - "&7of the zones by their name!"
+          - "&bA-Z &9| &bZ-A"
+          - "&7"
+          - "&7Current order: &b%order%"
+          - "&bClick here!"
+      ByCreator:
+        Name: "&bBy Creator"
+        Lore:
+          - "&7You can see all creators, and then"
+          - "&7you can see the zones that they"
+          - "&7has been created!"
+          - "&7"
+          - "&bClick here!"
+      Search:
+        Name: "&bSearch"
+        Lore:
+          - "&7Here you can search any"
+          - "&7any zone by her name!"
+          - "&7"
+          - "&bClick here!"
+      No_Zone:
+        Name: "&bNo zones!"
+        Lore:
+          - "&7Sorry, but i can not"
+          - "&7found any zones here."
+          - "&7Try to create any zone first!"
+      Back_Page:
+        Name: "&cBack"
+        Lore:
+          - "&7Back to the left page"
+          - "&7"
+          - "&bClick here!"
+      Next_Page:
+        Name: "&aNext"
+        Lore:
+          - "&7Go to the next page"
+          - "&7"
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+  Settings:
+    Name: "&9[&bSettings&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Title:
+        Name: "&bTitle"
+        Lore:
+          - "&7Click here to &benable/disable"
+          - "&7title when any player enter"
+          - "&7to any zone!"
+      Title_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Actionbar:
+        Name: "&bActionbar"
+        Lore:
+          - "&7Click here to &benable/disable"
+          - "&7actionbar when any player enter"
+          - "&7to any zone!"
+      Actionbar_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Message:
+        Name: "&bMessage"
+        Lore:
+          - "&7Click here to &benable/disable"
+          - "&7message when any player enter"
+          - "&7to any zone!"
+      Message_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Default_Zone:
+        Name: "&bDefault zone"
+        Lore:
+          - "&7Click here to change the"
+          - "&7zone default name, it"
+          - "&7shows when a player enter"
+          - "&7to any zone."
+      Default_Zone_Click:
+        Name: "&7"
+        Lore:
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+  Creators:
+    Name: "&9[&bCreators&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Creator:
+        Name: "&b%name%"
+      No_Creator:
+        Name: "&bNo creators!"
+        Lore:
+          - "&7Sorry, but i can not"
+          - "&7found any creators here."
+  Editor:
+    Name: "&9[&b%zone%&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Zone:
+        Name: "&b%name%"
+        Lore:
+          - "&9+ &7Created by: &b%creator%"
+          - "&9+ &7Date: &b%date%"
+          - "&9+ &7Point_1: &b%location_one%"
+          - "&9+ &7Point_2: &b%location_two%"
+      Rewards:
+        Name: "&bAdd rewards!"
+        #That shows the rewards in the lore really this is the line that will be added at the end in case a limit of 10 is exceeded#
+        Lore: "&bAnd &9%amount% &bmore..."
+        No_Rewards: "&7No rewards!"
+      Default_Zone:
+        Name: "&bDefault zone"
+        Lore:
+          - "&7Here you can select whether"
+          - "&7the zone will be default or not,"
+          - "&7remember that if it is default,"
+          - "&7users will not have to discover it."
+          - "&7"
+          - "&bClick here!"
+      Change_Item:
+        Name: "&bChange item"
+        Lore:
+          - "&7Here you can change the zone"
+          - "&7item, it shows when you"
+          - "&7open the zones menu."
+          - "&7"
+          - "&bClick here!"
+      Rename:
+        Name: "&bRename"
+        Lore:
+          - "&7Here you can rename the"
+          - "&7zone name, and it"
+          - "&7will change!"
+          - "&7"
+          - "&bClick here!"
+      Delete:
+        Name: "&cDelete zone"
+        Lore:
+          - "&7Here you can delete the zone"
+          - "&7i will to ask you if you are"
+          - "&7sure to do that."
+          - "&7"
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+  Search:
+    Name: "&9[&bSearch&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Zone:
+        Name: "&b%name%"
+        Lore:
+          - "&9+ &7Created by: &b%creator%"
+          - "&9+ &7Date: &b%date%"
+          - "&9+ &7Point_1: &b%location_one%"
+          - "&9+ &7Point_2: &b%location_two%"
+      No_Zone:
+        Name: "&bNo zones!"
+        Lore:
+          - "&7Sorry, but i can not"
+          - "&7found any zones with"
+          - "&7that name, try again!"
+      Back_Page:
+        Name: "&cBack"
+        Lore:
+          - "&7Back to the left page"
+          - "&7"
+          - "&bClick here!"
+      Next_Page:
+        Name: "&aNext"
+        Lore:
+          - "&7Go to the next page"
+          - "&7"
+          - "&bClick here!"
+      Search:
+        Name: "&bSearch"
+        Lore:
+          - "&7Here you can search any"
+          - "&7any zone by her name!"
+          - "&7"
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+  Items:
+    Name: "&9[&bChange item&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"

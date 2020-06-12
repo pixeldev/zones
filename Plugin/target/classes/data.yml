@@ -1,0 +1,340 @@
+Zones:
+  Test:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test2:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test3:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test4:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test5:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test6:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test7:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test8:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test9:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test10:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test11:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test12:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test13:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test14:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test15:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test16:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test17:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test18:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test19:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test20:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test21:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test22:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test23:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test24:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test25:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test26:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test27:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test28:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test29:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test30:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test31:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test32:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test33:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test34:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test35:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test36:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test37:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test38:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test39:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test40:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+  Test41:
+    Creator: PerfectGalaxy
+    Date: 09/06/2020-07:40
+    Location_UP: world;147.0;82.0;584.0
+    Location_DOWN: world;146.0;81.0;582.0
+    Default: false
+    Material: STONE
+    Rewards: {}
+Creators:
+  e87126f5-d50c-44dd-9f7d-c0215e2b4b94:
+    Zones:
+      - "Test"
+      - "Test2"
+      - "Test3"
+      - "Test4"
+      - "Test5"
+      - "Test6"
+      - "Test7"
+      - "Test8"

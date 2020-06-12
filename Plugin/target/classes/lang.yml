@@ -1,0 +1,20 @@
+Messages:
+  Prefix: "&9[&bPerfectZones&9]"
+  No_Permission: "%prefix% &cSorry but you do not have permissions!"
+  Zone:
+    Setup:
+      Point1_Select: "%prefix% &aYou selected the point #1 &a&n(%location%)&a!"
+      Point2_Select: "%prefix% &aYou selected the point #2 &a&n(%location%)&a!"
+      Success_Setup: "%prefix% &aThe zone &a&n%name%&a has been finished!"
+    Menu:
+      Success_Change_Default_Zone_Name: "%prefix% &aYou have successfully changed the zone default name to &a&n%name%&a!"
+      Same_Zone_Name: "%prefix% &cSorry! You can not set the same name to this zone!"
+      Already_Zone: "%prefix% &cSorry! But any zone already exists with the name &c&n%name%&c!"
+  Commands:
+    Create:
+      Invalid_Use: "%prefix% &cInvalid usage: /perfectZonesones create <Name> <Default:true or false>"
+      Already_Zone: "%prefix% &cSorry but any zone already exists with the name &c&n%name%&c!"
+      Success_Create: "%prefix% &aZone &a&n%name%&a has been create successfully!"
+      Join_Creator: "%prefix% &aNow you are in creator mode!"
+      Already_Creator: "%prefix% &cSorry but you are in creator mode!"
+      Leave_Creator: "%prefix% &7Now you are in normal mode!"

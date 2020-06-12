@@ -1,6 +1,0 @@
-name: PerfectZones
-version: 1.0.0
-description: The best zones for your server
-main: perfect.zones.PerfectZones
-author: PerfectGalaxy
-api-version: 1.13

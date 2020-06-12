@@ -1,0 +1,14 @@
+perfect\versions\common\base\MinecraftVersion.class
+perfect\versions\common\base\VersionModule.class
+perfect\versions\common\base\json\DefaultJsonModuleClassLoader.class
+perfect\versions\common\base\VersionProviderImpl.class
+perfect\versions\common\base\VersionProvider.class
+perfect\versions\common\base\json\JsonModulesLoaderImpl.class
+perfect\versions\common\ActionbarMessenger.class
+perfect\versions\common\base\json\JsonModuleClassLoader.class
+perfect\versions\common\base\json\JsonModulesLoader.class
+perfect\versions\common\base\json\JsonVersionModule.class
+perfect\versions\common\base\VersionProviderRegistryImpl.class
+perfect\versions\common\base\VersionProviderRegistry.class
+perfect\versions\common\MenuMessenger.class
+perfect\versions\common\TitleMessenger.class
