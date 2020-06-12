@@ -72,6 +72,12 @@
         </dependency>
         <dependency>
             <groupId>perfect.zones</groupId>
+            <artifactId>Common</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>perfect.zones</groupId>
             <artifactId>v1_9_R2</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
