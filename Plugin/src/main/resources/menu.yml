@@ -60,6 +60,7 @@ Menu:
           - "&9+ &7Date: &b%date%"
           - "&9+ &7Point_1: &b%location_one%"
           - "&9+ &7Point_2: &b%location_two%"
+        No_Location: "&7No setted!"
       Creator:
         Name: "&bCreator"
         Lore:
@@ -196,6 +197,25 @@ Menu:
         Lore:
           - "&7Sorry, but i can not"
           - "&7found any creators here."
+      Search:
+        Name: "&bSearch"
+        Lore:
+          - "&7Here you can search any"
+          - "&7any creator by her name!"
+          - "&7"
+          - "&bClick here!"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
   Editor:
     Name: "&9[&b%zone%&9]"
     Items:
@@ -210,6 +230,7 @@ Menu:
           - "&9+ &7Date: &b%date%"
           - "&9+ &7Point_1: &b%location_one%"
           - "&9+ &7Point_2: &b%location_two%"
+        No_Location: "&7No setted!"
       Rewards:
         Name: "&bAdd rewards!"
         #That shows the rewards in the lore really this is the line that will be added at the end in case a limit of 10 is exceeded#
@@ -274,6 +295,7 @@ Menu:
           - "&9+ &7Date: &b%date%"
           - "&9+ &7Point_1: &b%location_one%"
           - "&9+ &7Point_2: &b%location_two%"
+        No_Location: "&7No setted!"
       No_Zone:
         Name: "&bNo zones!"
         Lore:
@@ -330,3 +352,97 @@ Menu:
           - "&7Close the menu"
           - "&7"
           - "&bClick here!"
+  Creator:
+    Name: "&9[&bSetup&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Back:
+        Name: "&cMain menu"
+        Lore:
+          - "&7Back to the main menu"
+          - "&7"
+          - "&bClick here!"
+      Close:
+        Name: "&bClose"
+        Lore:
+          - "&7Close the menu"
+          - "&7"
+          - "&bClick here!"
+      Zone:
+        Name: "&b%name%"
+        Lore:
+          - "&9+ &7Created by: &b%creator%"
+          - "&9+ &7Date: &b%date%"
+          - "&9+ &7Point_1: &b%location_one%"
+          - "&9+ &7Point_2: &b%location_two%"
+        No_Location: "&7No setted!"
+      Rewards:
+        Name: "&bAdd rewards!"
+        #That shows the rewards in the lore really this is the line that will be added at the end in case a limit of 10 is exceeded#
+        Lore: "&bAnd &9%amount% &bmore..."
+        No_Rewards: "&7No rewards!"
+      Default_Zone:
+        Name: "&bDefault zone"
+        Lore:
+          - "&7Here you can select whether"
+          - "&7the zone will be default or not,"
+          - "&7remember that if it is default,"
+          - "&7users will not have to discover it."
+          - "&7"
+          - "&bClick here!"
+      Change_Item:
+        Name: "&bChange item"
+        Lore:
+          - "&7Here you can change the zone"
+          - "&7item, it shows when you"
+          - "&7open the zones menu."
+          - "&7"
+          - "&bClick here!"
+      Rename:
+        Name: "&bRename"
+        Lore:
+          - "&7Here you can rename the"
+          - "&7zone name, and it"
+          - "&7will change!"
+          - "&7"
+          - "&bClick here!"
+      Delete:
+        Name: "&cDelete zone"
+        Lore:
+          - "&7Here you can delete the zone"
+          - "&7i will to ask you if you are"
+          - "&7sure to do that."
+          - "&7"
+          - "&bClick here!"
+      Setup:
+        Name: "&bSetup zone"
+        Lore:
+          - "&7Here you can select"
+          - "&7the area of ​​the zone!"
+          - "&7"
+          - "&bClick here!"
+  Delete:
+    Name: "&9[&bDelete&9]"
+    Items:
+      Decoration:
+        Name: "&7"
+        Lore:
+          - "&7"
+      Zone:
+        Name: "&b%name%"
+        Lore:
+          - "&9+ &7Created by: &b%creator%"
+          - "&9+ &7Date: &b%date%"
+          - "&9+ &7Point_1: &b%location_one%"
+          - "&9+ &7Point_2: &b%location_two%"
+      Accept:
+        Name: "&aAccept"
+        Lore:
+          - "&bClick here to accept!"
+      Deny:
+        Name: "&cCancel"
+        Lore:
+          - "&bClick here to cancel!"

@@ -19,7 +19,8 @@ public class JsonModulesLoaderImpl implements JsonModulesLoader {
 
     @Override
     public void load(@NotNull VersionProviderRegistry registry, @NotNull MinecraftVersion version, @NotNull ObjectMapper objectMapper, @NotNull InputStream jsonInputStream)
-            throws IllegalArgumentException, IOException, IllegalAccessException, InstantiationException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
+            throws IllegalArgumentException, IOException, IllegalAccessException, InstantiationException, ClassNotFoundException,
+                NoSuchMethodException, InvocationTargetException {
         JsonVersionModule[] modulesArray = objectMapper.readValue(jsonInputStream, JsonVersionModule[].class);
         for (JsonVersionModule jsonModule : modulesArray) {
             if (jsonModule.getVersion() == version) {

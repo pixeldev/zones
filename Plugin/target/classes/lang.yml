@@ -10,6 +10,8 @@ Messages:
       Success_Change_Default_Zone_Name: "%prefix% &aYou have successfully changed the zone default name to &a&n%name%&a!"
       Same_Zone_Name: "%prefix% &cSorry! You can not set the same name to this zone!"
       Already_Zone: "%prefix% &cSorry! But any zone already exists with the name &c&n%name%&c!"
+      Success_Delete_Zone: "%prefix% &aYou have successfully removed the zone &a&n%name%&a!"
+      Cancel_Delete_Zone: "%prefix% &cYou have successfully canceled the removal of the zone &a&n%name%&a!"
   Commands:
     Create:
       Invalid_Use: "%prefix% &cInvalid usage: /perfectZonesones create <Name> <Default:true or false>"

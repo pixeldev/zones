@@ -14,6 +14,11 @@ public class UserCreator implements PUserCreator {
         this.zones = new ArrayList<>();
     }
 
+    public UserCreator(UUID uuid, List<String> zones) {
+        this.uuid = uuid;
+        this.zones = zones;
+    }
+
     @Override
     public UUID getUUID() {
         return uuid;

@@ -10,5 +10,4 @@ perfect\versions\common\base\json\JsonModulesLoader.class
 perfect\versions\common\base\json\JsonVersionModule.class
 perfect\versions\common\base\VersionProviderRegistryImpl.class
 perfect\versions\common\base\VersionProviderRegistry.class
-perfect\versions\common\MenuMessenger.class
 perfect\versions\common\TitleMessenger.class

@@ -55,7 +55,8 @@ public class PSearchMenu {
                 List<String> lore = new ArrayList<>();
 
                 perfectZones.getFilesManager().getMenu().getList("Menu.Search.Items.Zone.Lore").forEach(s -> lore.add(ChatColor.translateAlternateColorCodes('&', s.replace("%creator%", zone.getCreator()).replace("%date%", zone.getDate())
-                        .replace("%location_one%", Serialize.serializeLocation(zone.getDown())).replace("%location_two%", Serialize.serializeLocation(zone.getUp()) + ""))));
+                        .replace("%location_one%", (zone.getDown() != null) ? Serialize.serializeLocation(zone.getDown()) : perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Search.Items.Zone.No_Location")))
+                        .replace("%location_two%", (zone.getUp() != null) ? Serialize.serializeLocation(zone.getUp()) : perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Search.Items.Zone.No_Location"))))));
 
                 ItemStack item = ItemBuilder.getItem(Material.valueOf(zone.getMaterial()), 1, zone.getData(),
                         perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Search.Items.Zone.Name").replace("%name%", zone.getName())),

@@ -11,7 +11,6 @@ public class UserEditor implements PUserEditor {
     private final UUID uuid;
     private String key;
     private Zone zone;
-    private String material;
     private PUserEditor.Type type;
     private int page;
     private int pageSearch;
@@ -73,15 +72,5 @@ public class UserEditor implements PUserEditor {
     @Override
     public void setPageSearch(int pageSearch) {
         this.pageSearch = pageSearch;
-    }
-
-    @Override
-    public String getMaterial() {
-        return material;
-    }
-
-    @Override
-    public void setMaterial(String material) {
-        this.material = material;
     }
 }

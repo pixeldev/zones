@@ -1,5 +1,6 @@
 package perfect.galaxy.zones.user.manager;
 
+import perfect.galaxy.zones.PerfectZones;
 import perfect.galaxy.zones.user.UserCreator;
 
 import java.util.ArrayList;
@@ -8,10 +9,12 @@ import java.util.UUID;
 
 public class UserCreatorManager {
 
+    private final PerfectZones perfectZones;
     private final List<UserCreator> userCreators;
 
-    public UserCreatorManager() {
+    public UserCreatorManager(PerfectZones perfectZones) {
         userCreators = new ArrayList<>();
+        this.perfectZones = perfectZones;
     }
 
     public List<UserCreator> getUserCreators() {
@@ -35,4 +38,22 @@ public class UserCreatorManager {
         }
         return false;
     }
+
+    public void loadCreators() {
+        if (perfectZones.getFilesManager().getData().contains("Creators")) {
+            for (String s : perfectZones.getFilesManager().getData().getConfigurationSection("Creators").getKeys(false)) {
+                this.userCreators.add(new UserCreator(UUID.fromString(s), perfectZones.getFilesManager().getData().getList("Creators." + s + ".Zones")));
+            }
+        }
+    }
+
+    public void saveCreators() {
+        if (!this.userCreators.isEmpty()) {
+            userCreators.forEach(userCreator -> {
+                perfectZones.getFilesManager().getData().set("Creators." + userCreator.getUUID().toString() + ".Zones", userCreator.getZones());
+            });
+            perfectZones.data.save();
+        }
+    }
+
 }

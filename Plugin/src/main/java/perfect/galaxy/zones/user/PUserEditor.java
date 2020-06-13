@@ -17,10 +17,6 @@ public interface PUserEditor {
 
     void setKey(String key);
 
-    String getMaterial();
-
-    void setMaterial(String material);
-
     Type getType();
 
     void setType(Type type);

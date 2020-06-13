@@ -50,7 +50,7 @@ public class PEditorMenu implements PMenu {
                 perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Editor.Items.Change_Item.Name")),
                 perfectZones.getFilesManager().getMenu().parseColorList(perfectZones.getFilesManager().getMenu().getList("Menu.Editor.Items.Change_Item.Lore")));
 
-        List<String> r = perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().getRewards();
+        List<String> r = zone.getRewards();
         List<String> rewardsl = new ArrayList<>();
 
         if(!r.isEmpty()){

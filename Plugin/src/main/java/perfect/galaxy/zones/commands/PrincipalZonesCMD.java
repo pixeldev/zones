@@ -4,10 +4,7 @@ import me.fixeddev.ebcm.parametric.CommandClass;
 import me.fixeddev.ebcm.parametric.annotation.ACommand;
 import me.fixeddev.ebcm.parametric.annotation.Injected;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -18,12 +15,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import perfect.galaxy.zones.PerfectZones;
 import perfect.galaxy.zones.events.CreateZoneEvent;
 import perfect.galaxy.zones.managers.zone.Zone;
-import perfect.galaxy.zones.menu.PItemsMenu;
 import perfect.galaxy.zones.menu.PMainMenu;
 import perfect.galaxy.zones.user.UserEditor;
 import perfect.galaxy.zones.utils.PSaveInventory;
-import perfect.versions.common.ActionbarMessenger;
-import perfect.versions.common.TitleMessenger;
 
 import java.util.Arrays;
 
@@ -82,32 +76,6 @@ public class PrincipalZonesCMD implements CommandClass {
         }
 
         new PMainMenu(perfectZones, player);
-        return true;
-    }
-
-    @ACommand(names = "actionbar")
-    public boolean actionbarSend(@Injected(true) CommandSender sender) {
-        Player player = (Player) sender;
-
-        ActionbarMessenger actionbarMessenger = perfectZones.getVersionsManager().getVersionProviderRegistry()
-                                                    .getVersionProvider(ActionbarMessenger.class)
-                                                        .getImplementation(perfectZones.getVersionsManager().getCurrentVersion());
-
-        actionbarMessenger.sendActionbar(player, "Test API");
-
-        return true;
-    }
-
-    @ACommand(names = "title")
-    public boolean titleSend(@Injected(true) CommandSender sender, String title, String subtitle) {
-        Player player = (Player) sender;
-
-        TitleMessenger titleMessenger = perfectZones.getVersionsManager().getVersionProviderRegistry()
-                                            .getVersionProvider(TitleMessenger.class)
-                                                .getImplementation(perfectZones.getVersionsManager().getCurrentVersion());
-
-        titleMessenger.sendFull(player, title, subtitle, 20, 60, 20);
-
         return true;
     }
 

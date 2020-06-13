@@ -1,22 +1,28 @@
 package perfect.galaxy.zones.listeners;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
+import org.bukkit.inventory.meta.ItemMeta;
 import perfect.galaxy.zones.PerfectZones;
+import perfect.galaxy.zones.events.CreateZoneEvent;
+import perfect.galaxy.zones.managers.zone.Zone;
 import perfect.galaxy.zones.menu.*;
 import perfect.galaxy.zones.user.PUserEditor;
 import perfect.galaxy.zones.user.UserEditor;
 import perfect.galaxy.zones.utils.AnvilGUI;
 import perfect.galaxy.zones.utils.ItemBuilder;
+import perfect.galaxy.zones.utils.PSaveInventory;
+
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 public class InventoryClickListener implements Listener {
 
@@ -124,6 +130,39 @@ public class InventoryClickListener implements Listener {
             event.setCancelled(true);
             if(event.getCurrentItem() != null && event.getCurrentItem().getType() != null){
                 switch (event.getSlot()){
+                    case 11:
+                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                        AnvilGUI GUI = new AnvilGUI(player, e -> {
+                            if(e.getSlot() == AnvilGUI.AnvilSlot.OUTPUT && e.hasText()) {
+                                player.closeInventory();
+                                if(!perfectZones.getZoneManager().alreadyZone(e.getText())) {
+                                    Zone zone = new Zone(player.getName(), e.getText(), false);
+                                    zone.setDate(new SimpleDateFormat("dd/MM/yyyy-hh:mm").format(System.currentTimeMillis()));
+
+                                    CreateZoneEvent createZoneEvent = new CreateZoneEvent(player, zone);
+                                    Bukkit.getServer().getPluginManager().callEvent(createZoneEvent);
+
+                                    if(!createZoneEvent.isCancelled()) {
+                                        perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setZone(zone);
+                                        perfectZones.getZoneManager().addZone(zone);
+
+                                        new PCreatorMenu(perfectZones, player);
+                                        player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
+                                    }
+                                } else {
+                                    player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Already_Zone")
+                                            .replace("%prefix%", perfectZones.getPrefix()).replace("%name%", e.getText())));
+                                    player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("ENTITY_BLAZE_DEATH") : Sound.valueOf("BLAZE_DEATH"), 2, 3);
+                                }
+                            }
+                        });
+                        ItemStack i = new ItemStack(Material.PAPER);
+
+                        GUI.setSlot(AnvilGUI.AnvilSlot.INPUT_LEFT, i);
+                        GUI.setSlotName(AnvilGUI.AnvilSlot.INPUT_LEFT, "Type the name");
+                        GUI.setTitle("Create Zone");
+                        GUI.open();
+                        break;
                     case 13:
                         player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                         perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setType(PUserEditor.Type.NORMAL);
@@ -266,13 +305,6 @@ public class InventoryClickListener implements Listener {
 
         if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone() != null){
             if(event.getView().getTitle().equals(perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Editor.Name").replace("%zone%", perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().getName())))) {
-                if(event.getClickedInventory().getHolder() instanceof Player) {
-                    player.sendMessage("Si");
-                    if (event.getCurrentItem() != null && event.getCurrentItem().getType() != null) {
-                        player.sendMessage("Si, material: " + event.getCurrentItem().getType().toString());
-                        perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setMaterial(event.getCurrentItem().getType().toString());
-                    }
-                }
                 event.setCancelled(true);
                 if (event.getCurrentItem() != null && event.getCurrentItem().getType() != null) {
                     switch (event.getRawSlot()) {
@@ -319,11 +351,11 @@ public class InventoryClickListener implements Listener {
                             break;
                         case 38:
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
-                            if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getMaterial() != null) {
-                                perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().setMaterial(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getMaterial());
-                            }
-
-                            new PEditorMenu(perfectZones, player);
+                            new PItemsMenu(perfectZones, player);
+                            break;
+                        case 42:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            new PDeleteMenu(perfectZones, player);
                             break;
                         case 48:
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
@@ -369,6 +401,134 @@ public class InventoryClickListener implements Listener {
                 }
             }
         }
+
+        if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone() != null) {
+            if (event.getView().getTitle().equals(perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Delete.Name")))) {
+                event.setCancelled(true);
+                if (event.getCurrentItem() != null && event.getCurrentItem().getType() != null) {
+                    switch (event.getRawSlot()) {
+                        case 21:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            perfectZones.getZoneManager().removeZone(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone());
+                            new PZonesMenu(perfectZones, player).open(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getPage());
+                            player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Success_Delete_Zone")
+                                                    .replace("%prefix%", perfectZones.getPrefix())
+                                                    .replace("%name%", perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().getName())
+                            ));
+                            break;
+                        case 23:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            new PEditorMenu(perfectZones, player);
+                            player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Cancel_Delete_Zone")
+                                    .replace("%prefix%", perfectZones.getPrefix())
+                                    .replace("%name%", perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().getName())
+                            ));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone() != null) {
+            if (event.getView().getTitle().equals(perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Creators.Name")))) {
+                event.setCancelled(true);
+                if (event.getCurrentItem() != null && event.getCurrentItem().getType() != null) {
+                    switch (event.getRawSlot()) {
+                        case 39:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            new PZonesMenu(perfectZones, player).open(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getPage());
+                            break;
+                        case 41:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            player.closeInventory();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone() != null) {
+            if (event.getView().getTitle().equals(perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Creator.Name")))) {
+                event.setCancelled(true);
+                if (event.getCurrentItem() != null && event.getCurrentItem().getType() != null) {
+                    switch (event.getRawSlot()) {
+                        case 11:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            player.closeInventory();
+
+                            AnvilGUI GUI = new AnvilGUI(player, e -> {
+                                if(e.getSlot() == AnvilGUI.AnvilSlot.OUTPUT && e.hasText()) {
+                                    player.closeInventory();
+                                    player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
+
+                                    if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().getName().equals(e.getText())){
+                                        new PEditorMenu(perfectZones, player);
+                                        player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Same_Zone_Name").replace("%prefix%", perfectZones.getPrefix())));
+                                        return;
+                                    }
+
+                                    if(perfectZones.getZoneManager().alreadyZone(e.getText())){
+                                        new PEditorMenu(perfectZones, player);
+                                        player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Already_Zone").replace("%prefix%", perfectZones.getPrefix()).replace("%name%", e.getText())));
+                                        return;
+                                    }
+
+                                    perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().setName(e.getText());
+                                    new PEditorMenu(perfectZones, player);
+                                }
+                            });
+                            ItemStack i = new ItemStack(Material.PAPER);
+
+                            GUI.setSlot(AnvilGUI.AnvilSlot.INPUT_LEFT, i);
+                            GUI.setSlotName(AnvilGUI.AnvilSlot.INPUT_LEFT, "Type the new name");
+                            GUI.setTitle("Rename zone");
+                            GUI.open();
+
+                            break;
+                        case 15:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().setDefault(!perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().isDefault());
+                            event.getInventory().setItem(15, ItemBuilder.getItem((versionId >= 13) ? Material.valueOf("LEGACY_STAINED_GLASS_PANE") : Material.valueOf("STAINED_GLASS_PANE"), 1,
+                                    (perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone().isDefault()) ? 5 : 14,
+                                    perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Creator.Items.Default_Zone.Name")),
+                                    perfectZones.getFilesManager().getMenu().parseColorList(perfectZones.getFilesManager().getMenu().getList("Menu.Creator.Items.Default_Zone.Lore"))));
+                            break;
+                        case 31:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            perfectZones.getZoneManager().addNewSetuperfectZonesone(player.getUniqueId(), perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone());
+                            if(!perfectZones.getZoneManager().containsSaveInventory(player.getUniqueId())){
+                                putCreator(player);
+                                player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Commands.Create.Join_Creator").replace("%prefix%", perfectZones.getPrefix())));
+                            } else {
+                                player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Commands.Create.Already_Creator").replace("%prefix%", perfectZones.getPrefix())));
+                            }
+                            break;
+                        case 38:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            new PItemsMenu(perfectZones, player);
+                            break;
+                        case 42:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            new PDeleteMenu(perfectZones, player);
+                            break;
+                        case 48:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            new PZonesMenu(perfectZones, player).open(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getPage());
+                            break;
+                        case 50:
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            player.closeInventory();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
     }
 
     private void setPage(Player player, int amount){
@@ -377,6 +537,27 @@ public class InventoryClickListener implements Listener {
 
     private void setPageSearch(Player player, int amount){
         perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setPageSearch(amount);
+    }
+
+    private void putCreator(Player player){
+        PSaveInventory saveInventory = new PSaveInventory(player.getInventory().getContents(), player.getInventory().getArmorContents(), player.getGameMode(), player.getAllowFlight());
+        perfectZones.getZoneManager().addSaveInventory(player.getUniqueId(), saveInventory);
+
+        player.getInventory().clear();
+        player.getInventory().setArmorContents(null);
+        player.setGameMode(GameMode.CREATIVE);
+        player.setAllowFlight(true);
+
+        ItemStack wand = new ItemStack(Material.BLAZE_ROD);
+        ItemMeta wandm = wand.getItemMeta();
+        wandm.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&b&lCreator wand"));
+        wandm.setLore(Arrays.asList(ChatColor.translateAlternateColorCodes('&', "&7The best wand to create any type of zone!"),
+                ChatColor.translateAlternateColorCodes('&', "&7"), ChatColor.translateAlternateColorCodes('&', "&9LEFT CLICK &bto select point #1"),
+                ChatColor.translateAlternateColorCodes('&', "&9RIGHT CLICK &bto select point #2")));
+        wandm.addEnchant(Enchantment.DURABILITY, 3, true);
+        wandm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        wand.setItemMeta(wandm);
+        player.getInventory().setItem(4, wand);
     }
 
 }
