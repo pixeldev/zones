@@ -16,6 +16,7 @@ import perfect.galaxy.zones.PerfectZones;
 import perfect.galaxy.zones.events.CreateZoneEvent;
 import perfect.galaxy.zones.managers.zone.Zone;
 import perfect.galaxy.zones.menu.PMainMenu;
+import perfect.galaxy.zones.user.PUserEditor;
 import perfect.galaxy.zones.user.UserEditor;
 import perfect.galaxy.zones.utils.PSaveInventory;
 
@@ -74,6 +75,8 @@ public class PrincipalZonesCMD implements CommandClass {
         if(!perfectZones.getUserEditorManager().isUserEditor(player.getUniqueId())) {
             perfectZones.getUserEditorManager().getEditors().add(new UserEditor(player.getUniqueId()));
         }
+
+        perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setType(PUserEditor.Type.NORMAL);
 
         new PMainMenu(perfectZones, player);
         return true;

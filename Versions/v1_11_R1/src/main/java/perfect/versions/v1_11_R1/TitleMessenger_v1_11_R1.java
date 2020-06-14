@@ -13,7 +13,7 @@ public class TitleMessenger_v1_11_R1 implements TitleMessenger {
         CraftPlayer craftPlayer = (CraftPlayer) player;
         PacketPlayOutTitle packetPlayOutTitle = new PacketPlayOutTitle(
                 PacketPlayOutTitle.EnumTitleAction.TITLE,
-                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + message + "\"}"),
+                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + message.replace("&", "§") + "\"}"),
                 enter, in, out
         );
 
@@ -24,7 +24,7 @@ public class TitleMessenger_v1_11_R1 implements TitleMessenger {
         CraftPlayer craftPlayer = (CraftPlayer) player;
         PacketPlayOutTitle packetPlayOutTitle = new PacketPlayOutTitle(
                 PacketPlayOutTitle.EnumTitleAction.SUBTITLE,
-                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + message + "\"}"),
+                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + message.replace("&", "§") + "\"}"),
                 enter, in, out
         );
 
@@ -35,13 +35,13 @@ public class TitleMessenger_v1_11_R1 implements TitleMessenger {
         CraftPlayer craftPlayer = (CraftPlayer) player;
         PacketPlayOutTitle packetTitle = new PacketPlayOutTitle(
                 PacketPlayOutTitle.EnumTitleAction.TITLE,
-                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + title + "\"}"),
+                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + title.replace("&", "§") + "\"}"),
                 enter, in, out
         );
 
         PacketPlayOutTitle packetSubtitle = new PacketPlayOutTitle(
                 PacketPlayOutTitle.EnumTitleAction.SUBTITLE,
-                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + subtitle + "\"}"),
+                IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + subtitle.replace("&", "§") + "\"}"),
                 enter, in, out
         );
 

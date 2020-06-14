@@ -29,7 +29,19 @@ public interface PUserEditor {
 
     void setPageSearch(int pageSearch);
 
-    public enum Type {
+    boolean isSetup();
+
+    void setSetup(boolean setup);
+
+    boolean isReward();
+
+    void setReward(boolean reward);
+
+    boolean isMessageReward();
+
+    void setMessageReward(boolean messageReward);
+
+    enum Type {
         A_Z, Z_A, NORMAL
     }
 

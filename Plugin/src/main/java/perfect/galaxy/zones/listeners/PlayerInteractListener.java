@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import perfect.galaxy.zones.PerfectZones;
 import perfect.galaxy.zones.cuboid.PCuboid;
 import perfect.galaxy.zones.managers.zone.Zone;
+import perfect.galaxy.zones.menu.PCreatorMenu;
 import perfect.galaxy.zones.utils.PSaveInventory;
 import perfect.galaxy.zones.utils.Serialize;
 
@@ -62,6 +63,10 @@ public class PlayerInteractListener implements Listener {
                             quitCreator(player);
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
                             player.sendMessage(perfectZones.getFilesManager().getLang().parseColor(perfectZones.getFilesManager().getLang().getString("Messages.Zone.Setup.Success_Setup").replace("%prefix%", perfectZones.getPrefix()).replace("%name%", zone.getName())));
+
+                            if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).isSetup()) {
+                                new PCreatorMenu(perfectZones, player);
+                            }
                         }
                     }
                 }

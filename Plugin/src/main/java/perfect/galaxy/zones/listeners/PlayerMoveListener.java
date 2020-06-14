@@ -21,24 +21,29 @@ public class PlayerMoveListener implements Listener {
     @EventHandler
     public void onMove(PlayerMoveEvent event){
         Player player = event.getPlayer();
-        if(!perfectZones.getZoneManager().getZones().isEmpty()){
-            for(Zone zone : perfectZones.getZoneManager().getZones()){
-                if(zone.getCuboid() != null){
-                    if(zone.getCuboid().containsLocation(player.getLocation())){
-                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZone(zone);
-                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZoneName(zone.getName());
-                        if(!perfectZones.getUserZoneManager().isPlayerInZone(player.getUniqueId())) {
-                            PlayerEnterZoneEvent playerEnterZoneEvent = new PlayerEnterZoneEvent(player, perfectZones.getUserZoneManager().getUser(player.getUniqueId()), zone, zone.getName());
-                            Bukkit.getServer().getPluginManager().callEvent(playerEnterZoneEvent);
+        if(perfectZones.getUserZoneManager().containsUser(player.getUniqueId())) {
+            if(!perfectZones.getZoneManager().getZones().isEmpty()){
+                for(Zone zone : perfectZones.getZoneManager().getZones()){
+                    if(zone.getCuboid() != null){
+                        if(zone.getCuboid().containsLocation(player.getLocation())){
+                            perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZone(zone);
+                            perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZoneName(zone.getName());
+                            if(!perfectZones.getUserZoneManager().isPlayerInZone(player.getUniqueId())) {
+                                PlayerEnterZoneEvent playerEnterZoneEvent = new PlayerEnterZoneEvent(player,
+                                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()), zone, zone.getName());
+                                Bukkit.getServer().getPluginManager().callEvent(playerEnterZoneEvent);
+                            }
                         }
                     }
                 }
-            }
-            if(perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZone() != null){
-                if(!perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZone().getCuboid().containsLocation(player.getLocation())){
-                    perfectZones.getUserZoneManager().removePlayerInZone(player.getUniqueId());
-                    perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZone(null);
-                    perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZoneName(perfectZones.getFilesManager().getConfig().parseColor(perfectZones.getFilesManager().getConfig().getString("Zone.Default_Zone")));
+                if(perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZone() != null){
+                    if(!perfectZones.getUserZoneManager().getUser(player.getUniqueId()).getZone().getCuboid().containsLocation(player.getLocation())){
+                        perfectZones.getUserZoneManager().removePlayerInZone(player.getUniqueId());
+                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZone(null);
+                        perfectZones.getUserZoneManager().getUser(player.getUniqueId()).setZoneName(
+                                perfectZones.getFilesManager().getConfig().parseColor(perfectZones.getFilesManager().getConfig().getString("Zone.Default_Zone"))
+                        );
+                    }
                 }
             }
         }

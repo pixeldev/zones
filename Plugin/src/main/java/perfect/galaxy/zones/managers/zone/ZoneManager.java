@@ -101,6 +101,12 @@ public class ZoneManager {
         this.zones.remove(zone);
     }
 
+    public List<Zone> getZonesByName(List<String> zones) {
+        List<Zone> z = new ArrayList<>();
+        zones.forEach(s -> z.add(getZone(s)));
+        return z;
+    }
+
     public Zone getZone(String name){
         for(Zone zone : this.zones){
             if(zone.getName().equals(name)){
@@ -136,10 +142,13 @@ public class ZoneManager {
                 PCuboid cuboid = new PCuboid(Serialize.deserializeLocation(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Location_DOWN")),
                         Serialize.deserializeLocation(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Location_UP")));
 
-                Zone zone = new Zone(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Creator"), s, Serialize.deserializeLocation(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Location_DOWN")),
-                        Serialize.deserializeLocation(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Location_UP")), perfectZones.getFilesManager().getData().getString("Zones." + s + ".Date"),
+                Zone zone = new Zone(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Creator"), s,
+                        Serialize.deserializeLocation(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Location_DOWN")),
+                        Serialize.deserializeLocation(perfectZones.getFilesManager().getData().getString("Zones." + s + ".Location_UP")),
+                        perfectZones.getFilesManager().getData().getString("Zones." + s + ".Date"),
                         cuboid, perfectZones.getFilesManager().getData().getBoolean("Zones." + s + ".Default"), zoneSetups,
                         perfectZones.getFilesManager().getData().getList("Zones." + s + ".Rewards"),
+                        perfectZones.getFilesManager().getData().getList("Zones." + s + ".Messages_Rewards"),
                         perfectZones.getFilesManager().getData().getString("Zones." + s + ".Material"));
 
                 this.zones.add(zone);
@@ -160,6 +169,7 @@ public class ZoneManager {
                 perfectZones.getFilesManager().getData().set("Zones." + zone.getName() + ".Default", zone.isDefault());
                 perfectZones.getFilesManager().getData().set("Zones." + zone.getName() + ".Material", zone.getMaterial());
                 perfectZones.getFilesManager().getData().set("Zones." + zone.getName() + ".Rewards", zone.getRewards());
+                perfectZones.getFilesManager().getData().set("Zones." + zone.getName() + ".Messages_Rewards", zone.getMessagesRewards());
 
                 if(!zone.getZones().isEmpty()){
                     for(ZoneSetup zoneSetup : zone.getZones()){

@@ -55,7 +55,7 @@ public final class PerfectZones extends JavaPlugin {
 
         this.zoneManager = new ZoneManager(this);
         this.prefix = this.FilesManager.getLang().parseColor(this.FilesManager.getLang().getString("Messages.Prefix"));
-        this.userZoneManager = new UserZoneManager();
+        this.userZoneManager = new UserZoneManager(this);
         this.userEditorManager = new UserEditorManager();
         this.versionsManager = new VersionsManager();
         this.userCreatorManager = new UserCreatorManager(this);
@@ -67,12 +67,14 @@ public final class PerfectZones extends JavaPlugin {
 
         this.zoneManager.loadZones();
         this.userCreatorManager.loadCreators();
+        this.userZoneManager.loadUsersZone();
     }
 
     @Override
     public void onDisable(){
         this.zoneManager.saveZones();
         this.userCreatorManager.saveCreators();
+        this.userZoneManager.saveUsersZone();
     }
 
     public String getPrefix() {

@@ -11,9 +11,12 @@ public class UserEditor implements PUserEditor {
     private final UUID uuid;
     private String key;
     private Zone zone;
+    boolean reward;
     private PUserEditor.Type type;
     private int page;
     private int pageSearch;
+    boolean setup;
+    boolean messageReward;
 
     public UserEditor(UUID uuid) {
         this.uuid = uuid;
@@ -67,6 +70,36 @@ public class UserEditor implements PUserEditor {
     @Override
     public int getPageSearch() {
         return pageSearch;
+    }
+
+    @Override
+    public boolean isReward() {
+        return reward;
+    }
+
+    @Override
+    public void setReward(boolean reward) {
+        this.reward = reward;
+    }
+
+    @Override
+    public boolean isSetup() {
+        return setup;
+    }
+
+    @Override
+    public void setSetup(boolean setup) {
+        this.setup = setup;
+    }
+
+    @Override
+    public boolean isMessageReward() {
+        return messageReward;
+    }
+
+    @Override
+    public void setMessageReward(boolean messageReward) {
+        this.messageReward = messageReward;
     }
 
     @Override

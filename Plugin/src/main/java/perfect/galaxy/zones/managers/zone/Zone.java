@@ -7,7 +7,7 @@ import perfect.galaxy.zones.cuboid.PCuboid;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Zone implements PZone, Comparable<Zone> {
+public class Zone implements PZone {
 
     private String creator;
     private String name;
@@ -18,6 +18,7 @@ public class Zone implements PZone, Comparable<Zone> {
     private PCuboid cuboid;
     private String material;
     private boolean def;
+    private List<String> messagesRewards;
     private List<String> rewards;
     private List<ZoneSetup> zoneSetups;
 
@@ -26,13 +27,16 @@ public class Zone implements PZone, Comparable<Zone> {
         this.def = def;
         this.name = name;
         this.data = 0;
+        this.messagesRewards = new ArrayList<>();
         this.rewards = new ArrayList<>();
         this.material = "STONE";
         this.zoneSetups = new ArrayList<>();
     }
 
-    public Zone(String creator, String name, Location down, Location up, String date, PCuboid cuboid, boolean def, List<ZoneSetup> zoneSetups, List<String> rewards,String material) {
+    public Zone(String creator, String name, Location down, Location up, String date, PCuboid cuboid, boolean def,
+                List<ZoneSetup> zoneSetups, List<String> rewards, List<String> messagesRewards, String material) {
         this.creator = creator;
+        this.messagesRewards = messagesRewards;
         this.rewards = rewards;
         this.material = material;
         this.def = def;
@@ -170,7 +174,12 @@ public class Zone implements PZone, Comparable<Zone> {
     }
 
     @Override
-    public int compareTo(Zone o) {
-        return 0;
+    public List<String> getMessagesRewards() {
+        return messagesRewards;
+    }
+
+    @Override
+    public void setMessagesRewards(List<String> messagesRewards) {
+        this.messagesRewards = messagesRewards;
     }
 }

@@ -16,6 +16,10 @@ public interface PZone extends PZoneSetup {
 
     void setRewards(List<String> rewards);
 
+    List<String> getMessagesRewards();
+
+    void setMessagesRewards(List<String> messagesRewards);
+
     void addReward(String reward);
 
     boolean isDefault();

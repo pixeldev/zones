@@ -2,6 +2,25 @@ Messages:
   Prefix: "&9[&bPerfectZones&9]"
   No_Permission: "%prefix% &cSorry but you do not have permissions!"
   Zone:
+    General:
+      Title_Zone: "&bZone: &9%name%"
+      Actionbar_Zone: "&bZone: &9%name%"
+      Message_Zone:
+        - "&b&m&l+----------------------------------------------------+"
+        - "&7You have entered the area &b%name% &7enjoy your stay here!"
+        - "&b&m&l+----------------------------------------------------+"
+      Title_New_Zone: "&bNew Zone: &9%name%"
+      Actionbar_New_Zone: "&bNew Zone: &9%name%"
+      Message_New_Zone:
+        - "&b&m&l+----------------------------------------------------+"
+        - "&7You have discovered the area &b%name% enjoy your stay here"
+        - "&7Your rewards:"
+        - "&b%messages_rewards%"
+        - "&b&m&l+----------------------------------------------------+"
+      Reward:
+        No_Slash: "%prefix% &7Hey, you don't need to put &b/ &7at the beginning, since the commands are executed from console."
+        Success_Add_Reward: "%prefix% &aYou have successfully added the reward: &a&n%reward%&a!"
+        Cancel_Add_Reward: "%prefix% &aYou have successfully canceled the request to add a reward!"
     Setup:
       Point1_Select: "%prefix% &aYou selected the point #1 &a&n(%location%)&a!"
       Point2_Select: "%prefix% &aYou selected the point #2 &a&n(%location%)&a!"
@@ -12,6 +31,16 @@ Messages:
       Already_Zone: "%prefix% &cSorry! But any zone already exists with the name &c&n%name%&c!"
       Success_Delete_Zone: "%prefix% &aYou have successfully removed the zone &a&n%name%&a!"
       Cancel_Delete_Zone: "%prefix% &cYou have successfully canceled the removal of the zone &a&n%name%&a!"
+      Add_Reward:
+        - "&b&m&l+----------------------------------------------------+"
+        - "&7Please type the command you want to add to the zone you are editing,"
+        - "&7remember that this command will be executed from the console to the player,"
+        - "&7so you can use &b%player% &7to replace the player name,"
+        - "&7you should not put &b/ &7at the beginning. Remember to only add one,"
+        - "&7if you want to add more it will be like that later."
+        - "&bIf you want to cancel, just type &b&ncancel&b!"
+        - "&b&m&l+----------------------------------------------------+"
+      Title_Add_Reward: "&7Type the reward!"
   Commands:
     Create:
       Invalid_Use: "%prefix% &cInvalid usage: /perfectZonesones create <Name> <Default:true or false>"

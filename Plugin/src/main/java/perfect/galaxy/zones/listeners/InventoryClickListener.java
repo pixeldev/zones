@@ -20,6 +20,7 @@ import perfect.galaxy.zones.user.UserEditor;
 import perfect.galaxy.zones.utils.AnvilGUI;
 import perfect.galaxy.zones.utils.ItemBuilder;
 import perfect.galaxy.zones.utils.PSaveInventory;
+import perfect.versions.common.TitleMessenger;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -29,8 +30,12 @@ public class InventoryClickListener implements Listener {
     private final PerfectZones perfectZones;
     private final int versionId = Integer.parseInt(Bukkit.getBukkitVersion().split("-")[0].replace(".", "#").split("#")[1]);
 
+    private final TitleMessenger titleMessenger;
+
     public InventoryClickListener(PerfectZones perfectZones) {
         this.perfectZones = perfectZones;
+        this.titleMessenger =  perfectZones.getVersionsManager().getVersionProviderRegistry().getVersionProvider(TitleMessenger.class)
+                .getImplementation(perfectZones.getVersionsManager().getCurrentVersion());
     }
 
     @EventHandler
@@ -71,7 +76,7 @@ public class InventoryClickListener implements Listener {
                         break;
                     case 48:
                         player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
-                        new PCreatorsMenu(perfectZones, player);
+                        new PCreatorsMenu(perfectZones, player).open();
                         break;
                     case 50:
                         player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
@@ -144,6 +149,7 @@ public class InventoryClickListener implements Listener {
 
                                     if(!createZoneEvent.isCancelled()) {
                                         perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setZone(zone);
+                                        perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setSetup(true);
                                         perfectZones.getZoneManager().addZone(zone);
 
                                         new PCreatorMenu(perfectZones, player);
@@ -349,6 +355,19 @@ public class InventoryClickListener implements Listener {
                                     perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Editor.Items.Default_Zone.Name")),
                                     perfectZones.getFilesManager().getMenu().parseColorList(perfectZones.getFilesManager().getMenu().getList("Menu.Editor.Items.Default_Zone.Lore"))));
                             break;
+                        case 22:
+                            player.closeInventory();
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setReward(true);
+                            perfectZones.getFilesManager().getLang().getList("Messages.Zone.Menu.Add_Reward").forEach(s ->
+                                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', s))
+                            );
+                            titleMessenger.sendTitle(
+                                    player,
+                                    perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Title_Add_Reward"),
+                                    20, 60, 20
+                            );
+                            break;
                         case 38:
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                             new PItemsMenu(perfectZones, player);
@@ -388,7 +407,11 @@ public class InventoryClickListener implements Listener {
                         switch (event.getRawSlot()) {
                             case 48:
                                 player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
-                                new PEditorMenu(perfectZones, player);
+                                if(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).isSetup()) {
+                                    new PCreatorMenu(perfectZones, player);
+                                } else {
+                                    new PEditorMenu(perfectZones, player);
+                                }
                                 break;
                             case 50:
                                 player.closeInventory();
@@ -439,6 +462,22 @@ public class InventoryClickListener implements Listener {
                         case 39:
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                             new PZonesMenu(perfectZones, player).open(perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getPage());
+                            break;
+                        case 49:
+                            AnvilGUI GUI = new AnvilGUI(player, e -> {
+                                if(e.getSlot() == AnvilGUI.AnvilSlot.OUTPUT && e.hasText()) {
+                                    player.closeInventory();
+                                    player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("BLOCK_NOTE_BLOCK_PLING") : Sound.valueOf("NOTE_PLING"), 2, 3);
+                                    new PCreatorsMenu(perfectZones, player).openSearch(e.getText());
+                                }
+                            });
+                            ItemStack i = new ItemStack(Material.PAPER);
+
+                            GUI.setSlot(AnvilGUI.AnvilSlot.INPUT_LEFT, i);
+                            GUI.setSlotName(AnvilGUI.AnvilSlot.INPUT_LEFT, "Type the key");
+                            GUI.setTitle("Search creator");
+                            GUI.open();
+
                             break;
                         case 41:
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
@@ -497,7 +536,21 @@ public class InventoryClickListener implements Listener {
                                     perfectZones.getFilesManager().getMenu().parseColor(perfectZones.getFilesManager().getMenu().getString("Menu.Creator.Items.Default_Zone.Name")),
                                     perfectZones.getFilesManager().getMenu().parseColorList(perfectZones.getFilesManager().getMenu().getList("Menu.Creator.Items.Default_Zone.Lore"))));
                             break;
+                        case 22:
+                            player.closeInventory();
+                            player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
+                            perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).setReward(true);
+                            perfectZones.getFilesManager().getLang().getList("Messages.Zone.Menu.Add_Reward").forEach(s ->
+                                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', s))
+                            );
+                            titleMessenger.sendTitle(
+                                    player,
+                                    perfectZones.getFilesManager().getLang().getString("Messages.Zone.Menu.Title_Add_Reward"),
+                                    20, 60, 20
+                            );
+                            break;
                         case 31:
+                            player.closeInventory();
                             player.playSound(player.getLocation(), (versionId >= 13) ? Sound.valueOf("UI_BUTTON_CLICK") : Sound.valueOf("CLICK"), 2, 3);
                             perfectZones.getZoneManager().addNewSetuperfectZonesone(player.getUniqueId(), perfectZones.getUserEditorManager().getUserEditor(player.getUniqueId()).getZone());
                             if(!perfectZones.getZoneManager().containsSaveInventory(player.getUniqueId())){
